@@ -1,0 +1,12 @@
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\bin\Debug\net6.0\SpeedBack.deps.json
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\bin\Debug\net6.0\SpeedBack.dll
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\bin\Debug\net6.0\SpeedBack.pdb
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\obj\Debug\net6.0\SpeedBack.csproj.AssemblyReference.cache
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\obj\Debug\net6.0\SpeedBack.GeneratedMSBuildEditorConfig.editorconfig
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\obj\Debug\net6.0\SpeedBack.AssemblyInfoInputs.cache
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\obj\Debug\net6.0\SpeedBack.AssemblyInfo.cs
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\obj\Debug\net6.0\SpeedBack.csproj.CoreCompileInputs.cache
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\obj\Debug\net6.0\SpeedBack.dll
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\obj\Debug\net6.0\refint\SpeedBack.dll
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\obj\Debug\net6.0\SpeedBack.pdb
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\SpeedBack\obj\Debug\net6.0\ref\SpeedBack.dll

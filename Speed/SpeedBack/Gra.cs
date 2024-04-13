@@ -1,7 +1,8 @@
 ﻿namespace SpeedBack
 {
-    public class Class1
+    public class Gra
     {
+        IPlansza plansza = new Menu();
 
     }
 }
