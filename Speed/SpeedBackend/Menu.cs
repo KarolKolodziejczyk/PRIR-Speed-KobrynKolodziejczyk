@@ -13,15 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SpeedBack
+namespace SpeedBackend
 {
     internal class Menu : IPlansza
     {
+
         void Start()
         {
 
         }
-        void Setting()
+        void Settings()
         {
 
         }

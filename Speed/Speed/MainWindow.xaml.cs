@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SpeedBackend;
 
 namespace Speed
 {
@@ -22,6 +23,7 @@ namespace Speed
     {
         public MainWindow()
         {
+            Gra gra = new Gra();
             InitializeComponent();
         }
     }
