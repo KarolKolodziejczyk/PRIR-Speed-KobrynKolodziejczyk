@@ -17,9 +17,17 @@ namespace SpeedBack
 {
     internal class Menu : IPlansza
     {
-        void Exit()
+        void Start()
         {
 
+        }
+        void Setting()
+        {
+
+        }
+        void Exit()
+        {
+            Application.Current.Shutdown();
         }
     }
 }
