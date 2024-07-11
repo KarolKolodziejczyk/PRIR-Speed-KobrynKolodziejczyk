@@ -45,11 +45,7 @@ namespace Speed {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-<<<<<<< HEAD:Speed/Speed/obj/Debug/net6.0-windows/App.g.cs
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.7.0")]
-=======
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.3.0")]
->>>>>>> Wiktor:Speed/obj/Debug/net7.0-windows/App.g.cs
         public void InitializeComponent() {
             
             #line 5 "..\..\..\App.xaml"
@@ -64,11 +60,7 @@ namespace Speed {
         /// </summary>
         [System.STAThreadAttribute()]
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-<<<<<<< HEAD:Speed/Speed/obj/Debug/net6.0-windows/App.g.cs
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "6.0.7.0")]
-=======
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.3.0")]
->>>>>>> Wiktor:Speed/obj/Debug/net7.0-windows/App.g.cs
         public static void Main() {
             Speed.App app = new Speed.App();
             app.InitializeComponent();

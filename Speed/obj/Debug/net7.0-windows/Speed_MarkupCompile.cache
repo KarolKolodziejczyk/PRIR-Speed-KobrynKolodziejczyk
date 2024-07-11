@@ -4,19 +4,6 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD:Speed/Speed/obj/Debug/net6.0-windows/Speed_MarkupCompile.cache
-G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\Speed\obj\Debug\net6.0-windows\
-Speed
-none
-false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\Speed\App.xaml
-11407045341
-
-3-1233169557
-1942007414746
-MainWindow.xaml;
-=======
 C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Debug\net7.0-windows\
 Speed
 none
@@ -28,7 +15,6 @@ C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed
 51739761551
 198-878225571
 MainWindow.xaml;OptionsWindow.xaml;
->>>>>>> Wiktor:Speed/obj/Debug/net7.0-windows/Speed_MarkupCompile.cache
 
 False
 

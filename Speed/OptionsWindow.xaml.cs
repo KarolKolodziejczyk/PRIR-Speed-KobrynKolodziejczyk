@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using SpeedBackend;
 
 namespace Speed
 {
@@ -19,7 +18,6 @@ namespace Speed
     {
         public OptionsWindow()
         {
-            Gra gra = new Gra();
             InitializeComponent();
         }
 
