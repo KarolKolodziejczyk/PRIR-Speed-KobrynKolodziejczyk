@@ -14,5 +14,28 @@ namespace Speed
         {
             this.GUI = gameWindow;
         }
+
+        public int OnCardChosen()
+        {
+            // 0 - no changes
+            // 1 - reload view
+
+            return 0;
+        }
+
+        public void OnGameStart()
+        {
+            //
+        }
+
+        public void OnStop()
+        {
+            //
+        }
+
+        public void OnSurrender()
+        {
+            //
+        }
     }
 }
