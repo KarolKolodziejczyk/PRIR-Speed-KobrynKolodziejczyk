@@ -1,0 +1,23 @@
+﻿<Window x:Class="Speed.OptionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Speed"
+        mc:Ignorable="d"
+        Title="Options" Height="500" Width="400" Background="#FFAEFF62" ResizeMode="CanMinimize">
+    <Grid>
+        <Label Content="Options" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="40" Foreground="#FF193A0D"/>
+        <Button x:Name="BtnBack" Content="Go Back" HorizontalAlignment="Center" Margin="0,378,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="140" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnBack_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+    </Grid>
+</Window>
