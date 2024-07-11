@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET7_0;NETCOREAPP
 C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\App.xaml
-4-874812650
+52068102347
 
-101081173933
+111371512363
 198-878225571
-MainWindow.xaml;OptionsWindow.xaml;RulesWindow.xaml;SpeedGameWindow.xaml;
+MainWindow.xaml;MatchmakingWindow.xaml;OptionsWindow.xaml;RulesWindow.xaml;SpeedGameWindow.xaml;
 
-False
+True
 

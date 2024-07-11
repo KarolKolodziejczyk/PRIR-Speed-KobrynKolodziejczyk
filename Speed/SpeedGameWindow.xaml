@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Speed"
         mc:Ignorable="d"
-        Title="SpeedGameWindow" Height="450" Width="800">
+        Title="Speed Game" Height="600" Width="1200" ResizeMode="CanMinimize" Background="#FFAEFF62">
     <Grid>
         <Button x:Name="BtnTest" Content="test
                 " HorizontalAlignment="Left" Margin="152,135,0,0" VerticalAlignment="Top" Click="BtnTest_Click"/>

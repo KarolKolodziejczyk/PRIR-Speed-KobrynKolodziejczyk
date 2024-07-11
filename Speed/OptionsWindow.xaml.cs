@@ -14,14 +14,16 @@ using System.Windows.Shapes;
 
 namespace Speed
 {
-    /// <summary>
-    /// Logika interakcji dla klasy OptionsWindow.xaml
-    /// </summary>
     public partial class OptionsWindow : Window
     {
         public OptionsWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

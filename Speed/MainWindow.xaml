@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="SpeedMenu" Height="498" Width="400"
         ResizeMode="CanMinimize">
-    <Grid Background="#FFAEFF62">
+    <Grid Background="#FFAEFF62" Margin="0,0,0,-6">
         <Button x:Name="BtnPlay" Content="Play" HorizontalAlignment="Center" Margin="0,241,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="140" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnPlay_Click" >
             <Button.Effect>
                 <DropShadowEffect/>

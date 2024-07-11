@@ -11,9 +11,6 @@ using System.Windows.Shapes;
 
 namespace Speed
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -59,7 +56,7 @@ namespace Speed
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            SpeedGameWindow game = new SpeedGameWindow();
+            MatchmakingWindow game = new MatchmakingWindow();
             game.ShowDialog();
             this.Show();
         }
