@@ -20,11 +20,11 @@ namespace Speed
         private SpeedGameApp APP;
         private int HoverPixelAmount { get; } = 20;
 
-        public SpeedGameWindow()
+        public SpeedGameWindow(string IP)
         {
             InitializeComponent();
 
-            APP = new SpeedGameApp(this);
+            APP = new SpeedGameApp(this, IP);
 
             // card test
             BtnPlayerCard1.Content = LoadCardImage("heart", "5");

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Debug\net7.0-windows\
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Debug\net7.0-windows\
 Speed
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\App.xaml
-2-570693859
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\App.xaml
+7-992559631
 
-71438299851
-198-878225571
-MainWindow.xaml;OptionsWindow.xaml;
+16-648570466
+198-1133866272
+AcceptGameWindow.xaml;MainWindow.xaml;MatchmakingWindow.xaml;OptionsWindow.xaml;RulesWindow.xaml;SpeedGameWindow.xaml;WaitingForHostWindow.xaml;
 
 True
 

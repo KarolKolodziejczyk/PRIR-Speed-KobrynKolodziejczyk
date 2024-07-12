@@ -11,18 +11,28 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Speed.Backend;
 
 namespace Speed
 {
     public partial class MatchmakingWindow : Window
     {
+        Networking networking = new Networking();
         public MatchmakingWindow()
         {
             InitializeComponent();
             LoadOpponentImg();
             LoadOpponentIPTxt();
+            startNetwork();
+            //networking.MessageReceived += OnMessageReceived;
+            LbxLocalIPs.Items.Clear();
+
         }
 
+        private void startNetwork()
+        {
+            networking.Broadcast();
+        } 
         private void LoadOpponentImg()
         {
             Image imgOpp = new Image();
@@ -41,13 +51,53 @@ namespace Speed
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            SpeedGameWindow game = new SpeedGameWindow();
+            SpeedGameWindow game = new SpeedGameWindow(LblOpponentIP.ContentStringFormat);
             game.ShowDialog();
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.networking.Stop();
+            WaitingForHostWindow waitingWindow = new WaitingForHostWindow();
+            waitingWindow.Show();
+            //this.Close();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            networking.MessageReceived += OnMessageReceived;
+
+        }
+        public void OnMessageReceived(string message)
+        {
+            
+                // Ensure the method is called on the UI thread
+                Dispatcher.Invoke(() =>
+                {
+                   //MessageBox.Show($"Odebrano wiadomość !!!: {message}");
+
+                    bool messageExists = false;
+                    foreach (var item in LbxLocalIPs.Items)
+                    {
+                        if (item.ToString() == message)
+                        {
+                            messageExists = true;
+                            break;
+                        }
+                    }
+
+                    if (!messageExists)
+                    {
+                        LbxLocalIPs.Items.Add(message);
+                    }
+                });
+            
+
+        }
+
+        private void LbxLocalIPs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LblOpponentIP.Content=LbxLocalIPs.SelectedItem.ToString();
         }
     }
 }

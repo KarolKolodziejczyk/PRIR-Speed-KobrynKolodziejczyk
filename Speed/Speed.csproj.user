@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AcceptGameWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MatchmakingWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -19,8 +22,14 @@
     <Compile Update="SpeedGameWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="WaitingForHostWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AcceptGameWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -34,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="SpeedGameWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WaitingForHostWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
