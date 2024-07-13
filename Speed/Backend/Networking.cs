@@ -14,7 +14,6 @@ namespace Speed.Backend
 {
     public class Networking
     {
-        public string status = "nl";
         private TcpListener listener;
         private CancellationTokenSource cancellationTokenSource;
         private Task listenTask;

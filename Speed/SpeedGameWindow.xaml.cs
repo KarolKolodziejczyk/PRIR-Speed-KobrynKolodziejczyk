@@ -14,7 +14,10 @@ namespace Speed
 
         public SpeedGameWindow(string IP)
         {
+            
             InitializeComponent();
+            Aktualizuj("1");
+            APP = new SpeedGameApp(IP);
 
             // Testowe karty
             BtnPlayerCard1.Content = LoadCardImage("heart", "5");
@@ -29,9 +32,7 @@ namespace Speed
             LblEnemyCard5.Content = LoadCardImage("reverse");
             LblEnemy.Content = LoadCardImage("opponent");
 
-            this.Title += " VS:" + IP;
-            APP = new SpeedGameApp(this, IP);
-            APP.game.network.MessageReceived += OnMessageReceived; // Subskrybuj zdarzenie odbioru wiadomości
+            this.APP.network.MessageReceived += OnMessageReceived; // Subskrybuj zdarzenie odbioru wiadomości
         }
 
         private Image LoadCardImage(string cardSymbol, string cardNumber = "")
@@ -46,7 +47,7 @@ namespace Speed
         private async void BtnTest_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Wysylam");
-            await APP.network.SendToOpponent("Wiadomość do wysłania");
+            await APP.network.SendToOpponent("Wiadomość: hehe");
         }
 
         private void MoveButton(object sender, int pixelAmount)
@@ -74,9 +75,13 @@ namespace Speed
 
         private void OnMessageReceived(string message)
         {
-           
-                MessageBox.Show($"Otrzymano wiadomość: {message}");
-            
+
+                //MessageBox.Show($"Otrzymano wiadomość w Window: {message}");
+
+        }
+        public void Aktualizuj(string message)
+        {
+            LblTest.Content = message;
         }
     }
 }

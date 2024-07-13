@@ -1,0 +1,5 @@
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\publish\Speed.exe
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\publish\Speed.dll
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\publish\Speed.deps.json
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\publish\Speed.runtimeconfig.json
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\publish\Speed.pdb

@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace Speed.Backend
 {
-    internal class GameNetworking
+    internal class GameNetworking : IDisposable
     {
         private TcpListener listener;
         private CancellationTokenSource cancellationTokenSource;
         private Task listenTask;
 
-        public string iPPrzeciwnika;
+        public string IPPrzeciwnika { get; }
 
         public event Action<string> MessageReceived;
 
         public GameNetworking(string ip)
         {
-            iPPrzeciwnika = ip;
+            IPPrzeciwnika = ip;
         }
 
         public void StartListening(int port)
         {
-            listener = new TcpListener(IPAddress.Any, port);
+            listener = new TcpListener(IPAddress.Any, port); // Nasłuchuj na wszystkich interfejsach
             listener.Start();
             cancellationTokenSource = new CancellationTokenSource();
             listenTask = Task.Run(() => ListenForConnections(cancellationTokenSource.Token));
@@ -32,9 +32,9 @@ namespace Speed.Backend
 
         public async Task SendToOpponent(string message)
         {
-            if (!string.IsNullOrEmpty(iPPrzeciwnika))
+            if (!string.IsNullOrEmpty(IPPrzeciwnika))
             {
-                await SendMessage(iPPrzeciwnika, message);
+                await SendMessage(IPPrzeciwnika, message);
             }
             else
             {
@@ -50,8 +50,8 @@ namespace Speed.Backend
                 {
                     await client.ConnectAsync(ipAddress, 7078);
                     var stream = client.GetStream();
-                    var encodedMessage = Encoding.UTF8.GetBytes(message);
-                    await stream.WriteAsync(encodedMessage, 0, encodedMessage.Length);
+                    var mess = Encoding.UTF8.GetBytes(message);
+                    await stream.WriteAsync(mess, 0, mess.Length);
                 }
             }
             catch (Exception ex)
@@ -102,8 +102,14 @@ namespace Speed.Backend
 
         public void Stop()
         {
-            cancellationTokenSource.Cancel();
-            listener.Stop();
+            cancellationTokenSource?.Cancel();
+            listener?.Stop();
+        }
+
+        public void Dispose()
+        {
+            Stop();
+            cancellationTokenSource?.Dispose();
         }
     }
 }

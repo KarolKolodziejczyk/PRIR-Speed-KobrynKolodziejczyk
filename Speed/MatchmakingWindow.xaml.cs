@@ -110,6 +110,8 @@ namespace Speed
                         networking.SendRequest(senderIp, "ACCEPT_GAME");
                         SpeedGameWindow game = new SpeedGameWindow(senderIp);
                         game.Title = "Host";
+                        networking.Stop();
+                        this.Close();
                         game.ShowDialog();
                     }
                     else
@@ -121,8 +123,12 @@ namespace Speed
                 else if (command == "ACCEPT_GAME")
                 {
                     SpeedGameWindow game = new SpeedGameWindow(LblOpponentIP.Content.ToString());
+                    //MessageBox.Show(LblOpponentIP.Content.ToString());
                     game.Title = "Guest";
+                    networking.Stop();
+                    this.Close();
                     game.ShowDialog();
+
                 }
                 else if (command == "REJECT_GAME")
                 {
