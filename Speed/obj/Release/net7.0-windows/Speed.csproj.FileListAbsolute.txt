@@ -56,3 +56,6 @@ G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7
 G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.pdb
 G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.genruntimeconfig.cache
 G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\ref\Speed.dll
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\Newtonsoft.Json.dll
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.csproj.AssemblyReference.cache
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.csproj.Up2Date

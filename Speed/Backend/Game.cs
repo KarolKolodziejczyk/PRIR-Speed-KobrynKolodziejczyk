@@ -20,5 +20,87 @@ namespace Speed.Backend
             this.IPPrzeciwnika = IPPrzeciwnika;
             network  =new GameNetworking(IPprzeciwnika);
         }
+        public void Init()
+        {
+            StworzTalie();
+            TasujTalie();
+
+            RozdajKarty(5);
+            RozdajKartyPrzeciwnikowi(5);
+            //network.SendToOpponent(Talia);
+
+        }
+        private void TasujTalie()
+        {
+            Random rng = new Random();
+            int n = Talia.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                Karta value = Talia[k];
+                Talia[k] = Talia[n];
+                Talia[n] = value;
+            }
+        }
+        private void StworzTalie()
+        {
+            for (int i = 2; i <= 9; i++)
+            {
+                // Dodaj karty od 1 do 10 dla każdego koloru
+                Talia.Add(new Karta(i, $"club{i}", Color.Kier));
+                Talia.Add(new Karta(i, $"diam{i}", Color.Karo));
+                Talia.Add(new Karta(i, $"heart{i}", Color.Trefl));
+                Talia.Add(new Karta(i, $"spade{i}", Color.Pik));
+            }
+
+            // Dodaj figury (Król, Królowa, Walet) dla każdego koloru
+            Talia.Add(new Karta(11, $"heartJ", Color.Kier));
+            Talia.Add(new Karta(11, $"diamJ", Color.Karo));
+            Talia.Add(new Karta(11, $"heartJ", Color.Trefl));
+            Talia.Add(new Karta(11, $"spadeJ", Color.Pik));
+
+            Talia.Add(new Karta(12, $"heartQ", Color.Kier));
+            Talia.Add(new Karta(12, $"diamQ", Color.Karo));
+            Talia.Add(new Karta(12, $"heartQ", Color.Trefl));
+            Talia.Add(new Karta(12, $"spadeQ", Color.Pik));
+
+            Talia.Add(new Karta(13, $"heartK", Color.Kier));
+            Talia.Add(new Karta(13, $"diamK", Color.Karo));
+            Talia.Add(new Karta(13, $"heartK", Color.Trefl));
+            Talia.Add(new Karta(13, $"spadeK", Color.Pik));
+        }
+        private void RozdajKarty(int liczbaKart)
+        {
+            for (int i = 0; i < liczbaKart; i++)
+            {
+                RękaGracza.Add(LosujKarteZTalii());
+            }
+
+        }
+
+        private void RozdajKartyPrzeciwnikowi(int liczbaKart)
+        {
+            for (int i = 0; i < liczbaKart; i++)
+            {
+                RękaPrzeciwnika.Add(LosujKarteZTalii());
+            }
+        }
+
+        public Karta LosujKarteZTalii()
+        {
+            if (Talia.Count == 0)
+                throw new InvalidOperationException("Talia jest pusta.");
+
+            // Losowanie indeksu karty
+            Random rng = new Random();
+            int index = rng.Next(Talia.Count);
+
+            // Pobranie karty z talii i usunięcie jej
+            Karta wylosowanaKarta = Talia[index];
+            Talia.RemoveAt(index);
+
+            return wylosowanaKarta;
+        }
     }
 }

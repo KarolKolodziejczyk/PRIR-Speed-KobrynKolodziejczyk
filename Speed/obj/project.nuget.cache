@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "UnpOmRmDCGw=",
+  "dgSpecHash": "mmP1jNIkL8M=",
   "success": true,
   "projectFilePath": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\Speed.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Karol\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

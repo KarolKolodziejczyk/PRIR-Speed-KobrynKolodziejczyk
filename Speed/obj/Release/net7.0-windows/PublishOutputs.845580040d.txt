@@ -3,3 +3,4 @@ G:\Pulpit\APKA\Speed.dll
 G:\Pulpit\APKA\Speed.deps.json
 G:\Pulpit\APKA\Speed.runtimeconfig.json
 G:\Pulpit\APKA\Speed.pdb
+G:\Pulpit\APKA\Newtonsoft.Json.dll

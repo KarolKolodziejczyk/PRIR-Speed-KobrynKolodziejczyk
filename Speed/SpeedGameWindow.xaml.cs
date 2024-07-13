@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using Newtonsoft.Json;
 using Speed.Backend;
 
 namespace Speed
@@ -11,20 +12,30 @@ namespace Speed
     {
         private SpeedGameApp APP;
         private int HoverPixelAmount { get; } = 20;
+        private bool CzyHost = false;
+        private List<Button> playerCardButtons;
 
-        public SpeedGameWindow(string IP)
+        public SpeedGameWindow(string IP, bool s)
         {
-            
-            InitializeComponent();
-            Aktualizuj("1");
-            APP = new SpeedGameApp(IP);
 
+            playerCardButtons = new List<Button> {BtnPlayerCard1, BtnPlayerCard2, BtnPlayerCard3, BtnPlayerCard4, BtnPlayerCard5 };
+
+            InitializeComponent();
+            //Aktualizuj("1");
+            CzyHost = s;
+            APP = new SpeedGameApp(IP);
+            if (CzyHost)
+            {
+               // Aktualizuj("JESTEM HOSTEM");
+                APP.game.Init();
+                for(int i=0; i !=5;i++)
+                    APP.network.SendToOpponent("[TG]?" + this.APP.game.RękaPrzeciwnika[i].SerializeToJson());
+
+                aktualizujKarty();
+            }
             // Testowe karty
-            BtnPlayerCard1.Content = LoadCardImage("heart", "5");
-            BtnPlayerCard2.Content = LoadCardImage("spade", "2");
-            BtnPlayerCard3.Content = LoadCardImage("diam", "3");
-            BtnPlayerCard4.Content = LoadCardImage("club", "7");
-            BtnPlayerCard5.Content = LoadCardImage("superSWAP");
+            // Aktualizuj(this.APP.game.RękaGracza[0].ImagePath);
+     
             LblEnemyCard1.Content = LoadCardImage("reverse");
             LblEnemyCard2.Content = LoadCardImage("reverse");
             LblEnemyCard3.Content = LoadCardImage("reverse");
@@ -46,7 +57,7 @@ namespace Speed
 
         private async void BtnTest_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Wysylam");
+            //MessageBox.Show("Wysylam");
             await APP.network.SendToOpponent("Wiadomość: hehe");
         }
 
@@ -76,12 +87,48 @@ namespace Speed
         private void OnMessageReceived(string message)
         {
 
-                //MessageBox.Show($"Otrzymano wiadomość w Window: {message}");
+            // Podział wiadomości na części na podstawie separatora [TG]
+            string[] parts = message.Split(new string[] { "?" }, StringSplitOptions.None);
 
+            if (parts.Length == 2 && parts[0] == "[TG]")
+            {
+                // Rekonstrukcja tali na nowo
+                try
+                {
+                Application.Current.Dispatcher.Invoke((Action)delegate
+                {
+
+                    Karta karta = new Karta(parts[1]);
+                    //MessageBox.Show($"Otrzymano wiadomość w Window: {karta.SerializeToJson()}");
+                    this.APP.game.RękaGracza.Add(karta);
+
+                    if (this.APP.game.RękaGracza.Count() == 5) aktualizujKarty();
+                    //MessageBox.Show("Talia otrzymana i zrekonstruowana na nowo.");
+
+                });                    
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Błąd podczas deserializacji tali: {ex.Message}");
+                }
+            }
+            else
+            {
+               MessageBox.Show($"Otrzymano wiadomość w Window: {message}");
+            }
         }
         public void Aktualizuj(string message)
         {
             LblTest.Content = message;
+        }
+        private void aktualizujKarty()
+        {
+            BtnPlayerCard1.Content = LoadCardImage(this.APP.game.RękaGracza[0].ImagePath);
+            BtnPlayerCard2.Content = LoadCardImage(this.APP.game.RękaGracza[1].ImagePath);
+            BtnPlayerCard3.Content = LoadCardImage(this.APP.game.RękaGracza[2].ImagePath);
+            BtnPlayerCard4.Content = LoadCardImage(this.APP.game.RękaGracza[3].ImagePath);
+            BtnPlayerCard5.Content = LoadCardImage(this.APP.game.RękaGracza[4].ImagePath);
         }
     }
 }

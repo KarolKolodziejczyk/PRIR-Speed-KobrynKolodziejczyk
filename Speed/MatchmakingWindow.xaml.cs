@@ -108,7 +108,7 @@ namespace Speed
                     {
                         // Akceptacja gry - wyślij odpowiedź i uruchom grę
                         networking.SendRequest(senderIp, "ACCEPT_GAME");
-                        SpeedGameWindow game = new SpeedGameWindow(senderIp);
+                        SpeedGameWindow game = new SpeedGameWindow(senderIp, true);
                         game.Title = "Host";
                         networking.Stop();
                         this.Close();
@@ -122,7 +122,7 @@ namespace Speed
                 }
                 else if (command == "ACCEPT_GAME")
                 {
-                    SpeedGameWindow game = new SpeedGameWindow(LblOpponentIP.Content.ToString());
+                    SpeedGameWindow game = new SpeedGameWindow(LblOpponentIP.Content.ToString(), false);
                     //MessageBox.Show(LblOpponentIP.Content.ToString());
                     game.Title = "Guest";
                     networking.Stop();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Speed.Backend
 {
@@ -18,15 +19,25 @@ namespace Speed.Backend
 
     class Karta
     {
-        int value;
-        string imagePath;
-        Color color;
+        public int Value { get; set; }
+        public string ImagePath { get; set; }
+        public Color Color { get; set; }
         public Karta(int value, string imagePath, Color color)
         {
-            this.value = value;
-            this.imagePath = imagePath;
-            this.color = color;
+            this.Value = value;
+            this.ImagePath = imagePath;
+            this.Color = color;
         }
+        public string SerializeToJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+        [JsonConstructor]
+        public Karta(string json)
+        {
+            JsonConvert.PopulateObject(json, this);
+        }
+
 
 
     }
