@@ -5,12 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Speed.Backend;
 
 namespace Speed
@@ -18,21 +13,23 @@ namespace Speed
     public partial class MatchmakingWindow : Window
     {
         Networking networking = new Networking();
+        private HashSet<string> localIPs;
+
         public MatchmakingWindow()
         {
             InitializeComponent();
             LoadOpponentImg();
             LoadOpponentIPTxt();
             startNetwork();
-            //networking.MessageReceived += OnMessageReceived;
             LbxLocalIPs.Items.Clear();
-
         }
 
         private void startNetwork()
         {
+            localIPs = new HashSet<string>(Networking.GetAllLocalIPv4());
             networking.Broadcast();
-        } 
+        }
+
         private void LoadOpponentImg()
         {
             Image imgOpp = new Image();
@@ -48,56 +45,102 @@ namespace Speed
             LblOpponentIP.Content = "[ " + addr + " ]";
         }
 
-        private void BtnPlay_Click(object sender, RoutedEventArgs e)
+        private async void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            SpeedGameWindow game = new SpeedGameWindow(LblOpponentIP.ContentStringFormat);
-            game.ShowDialog();
+            string opponentIP = LblOpponentIP.Content.ToString().Trim('[', ']', ' ');
+
+            if (!string.IsNullOrEmpty(opponentIP))
+            {
+                // Wysyłanie żądania gry do przeciwnika
+                await networking.SendRequest(opponentIP, "REQUEST_GAME");
+            }
+            else
+            {
+                MessageBox.Show("Wybierz adres IP przeciwnika.");
+            }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            this.networking.Stop();
-            WaitingForHostWindow waitingWindow = new WaitingForHostWindow();
-            waitingWindow.Show();
-            //this.Close();
+            networking.Stop();
+            networking.MessageReceived -= OnMessageReceived;
+            this.Close();
         }
 
-        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        private async void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
             networking.MessageReceived += OnMessageReceived;
+            try
+            {
+                IEnumerable<string> results = await networking.ScanNetwork();
 
+                // Clear the existing items in ListBox
+                LbxLocalIPs.Items.Clear();
+
+                // Add the new results to the ListBox
+                foreach (var result in results)
+                {
+                    if (!localIPs.Contains(result))
+                    {
+                        LbxLocalIPs.Items.Add(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd podczas skanowania sieci: {ex.Message}");
+            }
         }
+
         public void OnMessageReceived(string message)
         {
-            
-                // Ensure the method is called on the UI thread
-                Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(() =>
+            {
+                string[] parts = message.Split(',');
+                string command = parts[0];
+                string senderIp = parts.Length > 1 ? parts[1] : null;
+
+                if (command == "REQUEST_GAME")
                 {
-                   //MessageBox.Show($"Odebrano wiadomość !!!: {message}");
-
-                    bool messageExists = false;
-                    foreach (var item in LbxLocalIPs.Items)
+                    // Wyświetlanie okna dialogowego z zapytaniem o przyjęcie gry
+                    MessageBoxResult result = MessageBox.Show($"Czy chcesz grać z przeciwnikiem o IP {senderIp}?", "Żądanie gry", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
                     {
-                        if (item.ToString() == message)
-                        {
-                            messageExists = true;
-                            break;
-                        }
+                        // Akceptacja gry - wyślij odpowiedź i uruchom grę
+                        networking.SendRequest(senderIp, "ACCEPT_GAME");
+                        SpeedGameWindow game = new SpeedGameWindow(senderIp);
+                        game.Title = "Host";
+                        game.ShowDialog();
                     }
-
-                    if (!messageExists)
+                    else
+                    {
+                        // Odrzucenie żądania gry
+                        networking.SendRequest(senderIp, "REJECT_GAME");
+                    }
+                }
+                else if (command == "ACCEPT_GAME")
+                {
+                    SpeedGameWindow game = new SpeedGameWindow(LblOpponentIP.Content.ToString());
+                    game.Title = "Guest";
+                    game.ShowDialog();
+                }
+                else if (command == "REJECT_GAME")
+                {
+                    // Możesz dodać kod do obsługi odrzuconego żądania gry
+                }
+                else
+                {
+                    if (!localIPs.Contains(message) && !LbxLocalIPs.Items.Contains(message))
                     {
                         LbxLocalIPs.Items.Add(message);
                     }
-                });
-            
-
+                }
+            });
         }
 
         private void LbxLocalIPs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LblOpponentIP.Content=LbxLocalIPs.SelectedItem.ToString();
+            LblOpponentIP.Content = LbxLocalIPs.SelectedItem.ToString();
         }
     }
 }

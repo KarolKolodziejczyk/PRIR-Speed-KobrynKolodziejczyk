@@ -113,13 +113,13 @@ namespace Speed.Backend
             }
         }
 
-        private async void ScanNetwork()
+        public async Task<IEnumerable<string>> ScanNetwork()
         {
             var localIPs = GetAllLocalIPv4().ToList();
             if (localIPs.Count == 0)
             {
                 MessageBox.Show("Nie można znaleźć lokalnych adresów IP.");
-                return;
+                return Enumerable.Empty<string>();
             }
 
             var tasks = new List<Task<string>>();
@@ -131,13 +131,7 @@ namespace Speed.Backend
 
             var results = await Task.WhenAll(tasks);
 
-            foreach (var result in results)
-            {
-                if (result != null)
-                {
-                    MessageBox.Show(result);
-                }
-            }
+            return results.Where(result => result != null);
         }
 
         private async Task<string> PingAndCheckPort(string ipAddress)
@@ -146,12 +140,12 @@ namespace Speed.Backend
             {
                 using (var ping = new Ping())
                 {
-                    var reply = await ping.SendPingAsync(ipAddress, 1000);
+                    var reply = await ping.SendPingAsync(ipAddress, 2000);
                     if (reply.Status == IPStatus.Success)
                     {
-                        if (await IsPortOpen(ipAddress, 7077, TimeSpan.FromSeconds(1)))
+                        if (await IsPortOpen(ipAddress, 7077, TimeSpan.FromSeconds(2)))
                         {
-                            return $"Host {ipAddress} odpowiada i udostępnia coś na porcie 7077.";
+                            return ipAddress;
                         }
                     }
                 }
@@ -184,7 +178,7 @@ namespace Speed.Backend
             }
         }
 
-        private IEnumerable<string> GetAllLocalIPv4()
+        public static IEnumerable<string> GetAllLocalIPv4()
         {
             List<string> ipAddrList = new List<string>();
             foreach (NetworkInterface item in NetworkInterface.GetAllNetworkInterfaces())
@@ -193,7 +187,7 @@ namespace Speed.Backend
                 {
                     foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)
                     {
-                        if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                        if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
                         {
                             string ipAddress = ip.Address.ToString();
                             if (!ipAddress.StartsWith("127."))
@@ -207,12 +201,43 @@ namespace Speed.Backend
             return ipAddrList;
         }
 
-
         public void Stop()
         {
             cancellationTokenSource.Cancel();
             listener.Stop();
             broadcastTimer.Stop();
+        }
+
+        public async Task SendRequest(string ipAddress, string request)
+        {
+            try
+            {
+                using (var client = new TcpClient())
+                {
+                    await client.ConnectAsync(ipAddress, 7077);
+                    var stream = client.GetStream();
+                    string localIp = GetLocalIpAddress();
+                    var message = Encoding.UTF8.GetBytes($"{request},{localIp}");
+                    await stream.WriteAsync(message, 0, message.Length);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Błąd wysyłania żądania: {ex.Message}");
+            }
+        }
+
+        private string GetLocalIpAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork && !ip.ToString().StartsWith("127."))
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("Brak lokalnego adresu IP.");
         }
     }
 }

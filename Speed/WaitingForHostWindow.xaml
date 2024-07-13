@@ -1,8 +1,0 @@
-﻿<Window x:Class="Speed.WaitingForHostWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Czekaj na hosta" Height="100" Width="250">
-    <Grid>
-        <TextBlock Text="Proszę czekać aż host przyjmie propozycję..." HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-    </Grid>
-</Window>

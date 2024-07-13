@@ -1,0 +1,5 @@
+G:\Pulpit\APKA\Speed.exe
+G:\Pulpit\APKA\Speed.dll
+G:\Pulpit\APKA\Speed.deps.json
+G:\Pulpit\APKA\Speed.runtimeconfig.json
+G:\Pulpit\APKA\Speed.pdb

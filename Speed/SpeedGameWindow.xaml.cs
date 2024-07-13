@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Speed.Backend;
 
 namespace Speed
 {
@@ -24,9 +16,7 @@ namespace Speed
         {
             InitializeComponent();
 
-            APP = new SpeedGameApp(this, IP);
-
-            // card test
+            // Testowe karty
             BtnPlayerCard1.Content = LoadCardImage("heart", "5");
             BtnPlayerCard2.Content = LoadCardImage("spade", "2");
             BtnPlayerCard3.Content = LoadCardImage("diam", "3");
@@ -38,26 +28,30 @@ namespace Speed
             LblEnemyCard4.Content = LoadCardImage("reverse");
             LblEnemyCard5.Content = LoadCardImage("reverse");
             LblEnemy.Content = LoadCardImage("opponent");
+
+            this.Title += " VS:" + IP;
+            APP = new SpeedGameApp(this, IP);
+            APP.game.network.MessageReceived += OnMessageReceived; // Subskrybuj zdarzenie odbioru wiadomości
         }
 
         private Image LoadCardImage(string cardSymbol, string cardNumber = "")
         {
             Image image = new Image();
-            var uri = new Uri("pack://application:,,,/cards/" + cardSymbol.ToLower() + cardNumber + ".png");
+            var uri = new Uri($"pack://application:,,,/cards/{cardSymbol.ToLower()}{cardNumber}.png");
             var bitmap = new BitmapImage(uri);
             image.Source = bitmap;
             return image;
         }
 
-        private void BtnTest_Click(object sender, RoutedEventArgs e)
+        private async void BtnTest_Click(object sender, RoutedEventArgs e)
         {
-            // communication
+            MessageBox.Show("Wysylam");
+            await APP.network.SendToOpponent("Wiadomość do wysłania");
         }
 
         private void MoveButton(object sender, int pixelAmount)
         {
-            Button button = sender as Button;
-            if (button != null)
+            if (sender is Button button)
             {
                 button.Margin = new Thickness(button.Margin.Left, button.Margin.Top - pixelAmount, button.Margin.Right, button.Margin.Bottom + pixelAmount);
             }
@@ -75,7 +69,14 @@ namespace Speed
 
         private void BtnPlayerCard1_Click(object sender, RoutedEventArgs e)
         {
-            //
+            // Obsługa kliknięcia karty gracza
+        }
+
+        private void OnMessageReceived(string message)
+        {
+           
+                MessageBox.Show($"Otrzymano wiadomość: {message}");
+            
         }
     }
 }

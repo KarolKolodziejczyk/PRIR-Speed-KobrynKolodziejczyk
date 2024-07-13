@@ -27,3 +27,32 @@ C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed
 C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\SpeedGameWindow.baml
 C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\MatchmakingWindow.g.cs
 C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\MatchmakingWindow.baml
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\Speed.exe
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\Speed.deps.json
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\Speed.runtimeconfig.json
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\Speed.dll
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\Speed.pdb
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\MainWindow.g.cs
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\MatchmakingWindow.g.cs
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\OptionsWindow.g.cs
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\RulesWindow.g.cs
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\SpeedGameWindow.g.cs
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\App.g.cs
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed_MarkupCompile.cache
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed_MarkupCompile.lref
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\MainWindow.baml
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\MatchmakingWindow.baml
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\OptionsWindow.baml
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\RulesWindow.baml
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\SpeedGameWindow.baml
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.g.resources
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.GeneratedMSBuildEditorConfig.editorconfig
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.AssemblyInfoInputs.cache
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.AssemblyInfo.cs
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.csproj.CoreCompileInputs.cache
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.sourcelink.json
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.dll
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\refint\Speed.dll
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.pdb
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\Speed.genruntimeconfig.cache
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\ref\Speed.dll

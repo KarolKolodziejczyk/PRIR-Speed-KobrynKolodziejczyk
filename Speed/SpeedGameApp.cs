@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows;
 using Speed.Backend;
 
 namespace Speed
@@ -10,35 +6,46 @@ namespace Speed
     internal class SpeedGameApp
     {
         private SpeedGameWindow GUI;
+        public GameNetworking network;
+        public Game game;
+        public event Action<string> MessageReceived;
 
-        Game game; 
         public SpeedGameApp(SpeedGameWindow gameWindow, string IP)
         {
             this.GUI = gameWindow;
-            game = new Game(IP);
+            this.network = new GameNetworking(IP);
+            this.game = new Game(IP);
+            this.network.MessageReceived += OnMessageReceived; 
         }
 
-        public int OnCardChosen()
+        public void OnMessageReceived(string message)
         {
-            // 0 - no changes
-            // 1 - reload view
+            MessageReceived?.Invoke(message);
+            // Aktualizacja interfejsu użytkownika na podstawie otrzymanej wiadomości
+            GUI.Dispatcher.Invoke(() =>
+            {
+                MessageBox.Show(message);
+            });
+        }
 
-            return 0;
+        public void OnCardChosen()
+        {
+            // Logika wyboru karty
         }
 
         public void OnGameStart()
         {
-            //
+            // Logika rozpoczęcia gry
         }
 
         public void OnStop()
         {
-            //
+            // Logika zatrzymania gry
         }
 
         public void OnSurrender()
         {
-            //
+            // Logika poddania się
         }
     }
 }
