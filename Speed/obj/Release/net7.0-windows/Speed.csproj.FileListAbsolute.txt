@@ -27,3 +27,7 @@ C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed
 C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\SpeedGameWindow.baml
 C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\MatchmakingWindow.g.cs
 C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\MatchmakingWindow.baml
+C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\ResultWindow.g.cs
+C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\ResultWindow.baml
+C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\HostWindow.g.cs
+C:\Users\wikto\Desktop\studia katowice\PRIR\PRIR-Speed-KobrynKolodziejczyk\Speed\obj\Release\net7.0-windows\HostWindow.baml

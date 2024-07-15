@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="Speed Game" Height="696" Width="1200" ResizeMode="CanMinimize" Background="#FFE0FFA0">
     <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="311" Margin="841,311,0,0" Stroke="White" VerticalAlignment="Top" Width="315" Fill="#FF7B8457" RadiusX="30" RadiusY="30" StrokeThickness="0"/>
         <Rectangle HorizontalAlignment="Left" Height="192" Margin="-24,526,0,0" Stroke="White" VerticalAlignment="Top" Width="807" Fill="#FF728457" RadiusX="30" RadiusY="30" StrokeThickness="0"/>
-        <Button x:Name="BtnTest" Content="test" HorizontalAlignment="Left" Margin="152,135,0,0" VerticalAlignment="Top" Click="BtnTest_Click"/>
         <Button x:Name="BtnPlayerCard1" Content="card1" HorizontalAlignment="Left" Margin="25,441,0,0" VerticalAlignment="Top" Height="200" Width="135" MouseEnter="BtnPlayerCard_MouseEnter" MouseLeave="BtnPlayerCard_MouseLeave" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnPlayerCard1_Click"/>
-        <Button x:Name="BtnPlayerCard2" Content="card1" HorizontalAlignment="Left" Margin="167,441,0,0" VerticalAlignment="Top" Height="200" Width="135" MouseEnter="BtnPlayerCard_MouseEnter" MouseLeave="BtnPlayerCard_MouseLeave" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnPlayerCard1_Click"/>
-        <Button x:Name="BtnPlayerCard3" Content="card1" HorizontalAlignment="Left" Margin="310,441,0,0" VerticalAlignment="Top" Height="200" Width="135" MouseEnter="BtnPlayerCard_MouseEnter" MouseLeave="BtnPlayerCard_MouseLeave" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnPlayerCard1_Click"/>
-        <Button x:Name="BtnPlayerCard4" Content="card1" HorizontalAlignment="Left" Margin="451,441,0,0" VerticalAlignment="Top" Height="200" Width="135" MouseEnter="BtnPlayerCard_MouseEnter" MouseLeave="BtnPlayerCard_MouseLeave" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnPlayerCard1_Click"/>
-        <Button x:Name="BtnPlayerCard5" Content="card1" HorizontalAlignment="Left" Margin="595,441,0,0" VerticalAlignment="Top" Height="200" Width="135" MouseEnter="BtnPlayerCard_MouseEnter" MouseLeave="BtnPlayerCard_MouseLeave" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnPlayerCard1_Click"/>
+        <Button x:Name="BtnPlayerCard2" Content="card1" HorizontalAlignment="Left" Margin="167,441,0,0" VerticalAlignment="Top" Height="200" Width="135" MouseEnter="BtnPlayerCard_MouseEnter" MouseLeave="BtnPlayerCard_MouseLeave" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnPlayerCard2_Click"/>
+        <Button x:Name="BtnPlayerCard3" Content="card1" HorizontalAlignment="Left" Margin="310,441,0,0" VerticalAlignment="Top" Height="200" Width="135" MouseEnter="BtnPlayerCard_MouseEnter" MouseLeave="BtnPlayerCard_MouseLeave" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnPlayerCard3_Click"/>
+        <Button x:Name="BtnPlayerCard4" Content="card1" HorizontalAlignment="Left" Margin="451,441,0,0" VerticalAlignment="Top" Height="200" Width="135" MouseEnter="BtnPlayerCard_MouseEnter" MouseLeave="BtnPlayerCard_MouseLeave" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnPlayerCard4_Click"/>
+        <Button x:Name="BtnPlayerCard5" Content="card1" HorizontalAlignment="Left" Margin="595,441,0,0" VerticalAlignment="Top" Height="200" Width="135" MouseEnter="BtnPlayerCard_MouseEnter" MouseLeave="BtnPlayerCard_MouseLeave" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnPlayerCard5_Click"/>
         <Rectangle HorizontalAlignment="Left" Height="145" Margin="587,0,0,0" Stroke="White" VerticalAlignment="Top" Width="613" Fill="#FFBEBF6F" RadiusX="10" RadiusY="10" StrokeThickness="0"/>
         <Label x:Name="LblEnemyCard1" Content="" HorizontalAlignment="Left" Margin="600,13,0,0" VerticalAlignment="Top" Height="119" Width="80"/>
         <Label x:Name="LblEnemyCard2" Content="" HorizontalAlignment="Left" Margin="690,13,0,0" VerticalAlignment="Top" Height="119" Width="80"/>
@@ -22,5 +22,44 @@
         <Label x:Name="LblEnemyCard5" Content="" HorizontalAlignment="Left" Margin="960,13,0,0" VerticalAlignment="Top" Height="119" Width="80"/>
         <Label x:Name="LblEnemy" Content="" HorizontalAlignment="Left" Margin="1062,-19,0,0" VerticalAlignment="Top" Height="164" Width="104" FontSize="50"/>
         <Label Content="| Enemy |" HorizontalAlignment="Left" Margin="1072,101,0,0" VerticalAlignment="Top" Height="28" Width="84" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="16" Foreground="#FFFBFBEB"/>
+        <Label x:Name="LblDeck1" Content="" HorizontalAlignment="Left" Margin="896,400,0,0" VerticalAlignment="Top" Height="200" Width="135"/>
+        <Label x:Name="LblDeck2" Content="" HorizontalAlignment="Left" Margin="879,382,0,0" VerticalAlignment="Top" Height="200" Width="135"/>
+        <Label Content="DECK" HorizontalAlignment="Left" Margin="902,324,0,0" VerticalAlignment="Top" Height="43" Width="196" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="30" Foreground="#FFFBFBEB"/>
+        <Label x:Name="LblDeckRemaining" Content="x50" HorizontalAlignment="Left" Margin="1032,454,0,0" VerticalAlignment="Top" Height="60" Width="87" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="40" Foreground="#FFFBFBEB"/>
+        <Label Content="/50" HorizontalAlignment="Left" Margin="1099,478,0,0" VerticalAlignment="Top" Height="43" Width="57" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Medium" FontSize="25" Foreground="#FFFBFBEB"/>
+        <Label x:Name="LblPlayerPoints" Content="Points: 0" HorizontalAlignment="Left" Margin="84,37,0,0" VerticalAlignment="Top" Height="44" Width="228" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Heavy" FontSize="35" Foreground="#FF846757"/>
+        <Label x:Name="LblEnemyPoints" Content="Points: 0" HorizontalAlignment="Left" Margin="587,145,0,0" VerticalAlignment="Top" Height="36" Width="219" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Heavy" FontSize="24" Foreground="#FFBEBF6F"/>
+        <Rectangle HorizontalAlignment="Left" Height="275" Margin="70,89,0,0" Stroke="White" VerticalAlignment="Top" Width="357" Fill="#FF846757" RadiusX="30" RadiusY="30" StrokeThickness="0"/>
+        <Label x:Name="LblTableCard" Content="" HorizontalAlignment="Left" Margin="150,81,0,0" VerticalAlignment="Top" Height="289" Width="192" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="BtnSurrender" Content="Surrender 🏁" HorizontalAlignment="Left" Margin="946,235,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Medium" FontSize="24" Width="210" Height="49" Background="#FF846757" Foreground="#FFFAFDF0" BorderBrush="#FFFAFDF0" BorderThickness="3,3,3,3" Click="BtnSurrender_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Label x:Name="LblTableChangeTop" Content="" HorizontalAlignment="Left" Margin="357,67,0,0" VerticalAlignment="Top" Height="87" Width="90"/>
+        <Label x:Name="LblTableChangeBottom" Content="" HorizontalAlignment="Left" Margin="34,294,0,0" VerticalAlignment="Top" Height="87" Width="90" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Window>

@@ -1,0 +1,24 @@
+﻿<Window x:Class="Speed.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Speed"
+        mc:Ignorable="d"
+        Title="ResultWindow" Height="170" Width="400" Background="#FFAEFF62"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Button x:Name="BtnOk" Content="OK" HorizontalAlignment="Left" Margin="282,78,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="91" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnOk_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Label x:Name="LblResult" Content="🏁 SURRENDERED 🏁" HorizontalAlignment="Center" Margin="0,12,0,0" VerticalAlignment="Top" Height="61" Width="380" VerticalContentAlignment="Center" FontFamily="Franklin Gothic Heavy" FontSize="35" Foreground="#FF26482B" HorizontalContentAlignment="Center"/>
+
+    </Grid>
+</Window>
