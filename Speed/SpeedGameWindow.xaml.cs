@@ -129,7 +129,15 @@ namespace Speed
        
                     // Podział wiadomości na części na podstawie separatora [TG]
             string[] parts = message.Split(new string[] { "?" }, StringSplitOptions.None);
-            if (parts.Length == 2 && parts[0] == "[UL]")
+            if (parts.Length == 2 && parts[0] == "[KG]")
+            {
+                Application.Current.Dispatcher.Invoke((Action)delegate
+                {
+                    KoniecGry();
+                });
+            }
+            else
+           if (parts.Length == 2 && parts[0] == "[UL]")
             {
                 Application.Current.Dispatcher.Invoke((Action)delegate
                 {
@@ -207,14 +215,30 @@ namespace Speed
         {
             this.APP.network.SendToOpponent(this.APP.game.CzyLocked ? "[L]?1" : "[UL]?1");
             GraczLocked.Content = this.APP.game.CzyLocked ? "L" : "";
-            if (GraczLocked.Content == "L" && EnemyLocked.Content == "L") KoniecGry();
+            if (GraczLocked.Content.ToString() == "L" && EnemyLocked.Content.ToString() == "L") KoniecGry();
         }
 
         private void KoniecGry(bool surrender = false) {
-            if (!surrender)
-                if (this.APP.game.PunktyGracz > this.APP.game.PunktyPrzeciwnik) MessageBox.Show("WYGRAŁEŚ!!"); else MessageBox.Show("Przegrałeś!");
-            else MessageBox.Show("Przegrana (Surrender)");
-            this.Close();
+            if (!this.APP.game.Koniec)
+            {
+                this.APP.game.Koniec = true;
+                this.APP.network.SendToOpponent("[KG]?1");
+                ResultWindow info;
+                if (!surrender)
+                {
+                    if (this.APP.game.PunktyGracz > this.APP.game.PunktyPrzeciwnik)
+                        info = new ResultWindow(ResultType.Win);
+                    else
+                        info = new ResultWindow(ResultType.Failure);
+                }
+                else
+                    info = new ResultWindow(ResultType.Surrender);
+
+                info.Owner = this;
+                info.ShowDialog();
+                this.Close();
+                Application.Current.Shutdown();
+            }
         }
         private void aktualizujKarty()
         {
@@ -282,7 +306,7 @@ namespace Speed
             ResultWindow info = new ResultWindow(ResultType.Surrender);
             info.Owner = this;
             info.ShowDialog();
-            KoniecGry();
+            KoniecGry(true);
             APP.OnSurrender();
 
             this.Close();

@@ -21,6 +21,7 @@ namespace Speed.Backend
         public DateTime Czas = new DateTime(0);
         public int PunktyPrzeciwnik = 0;
         public int PunktyGracz = 0;
+        public bool Koniec = false;
         public Game(string IPprzeciwnika) {
             this.IPPrzeciwnika = IPPrzeciwnika;
             network  =new GameNetworking(IPprzeciwnika);
