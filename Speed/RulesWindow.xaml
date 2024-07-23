@@ -18,6 +18,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
+        <Image x:Name="Image" Margin="22,97,22,97" Source="/cards/image.png" Stretch="Fill"/>
 
     </Grid>
 </Window>
