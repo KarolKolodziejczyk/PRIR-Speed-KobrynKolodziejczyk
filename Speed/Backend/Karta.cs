@@ -9,12 +9,13 @@ namespace Speed.Backend
 {
     enum Color
     {
-        Kier,
-        Karo,
-        Trefl,
-        Pik,
-        Special
-           
+        Kier = 0,
+        Karo = 1,
+        Trefl = 2,
+        Pik = 3,
+        Special = 4,
+        None = 10
+       
     }
 
     class Karta

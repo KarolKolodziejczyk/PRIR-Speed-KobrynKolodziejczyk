@@ -42,8 +42,6 @@ namespace Speed
            
             if (this.game.LegalnyRuch(numer))
             {
-     
-
                     network.SendToOpponent("[ZAG]?" + numer);
                     return true;
                 

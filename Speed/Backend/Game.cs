@@ -19,6 +19,8 @@ namespace Speed.Backend
         public int seed;
         public bool CzyLocked = false;
         public DateTime Czas = new DateTime(0);
+        public int PunktyPrzeciwnik = 0;
+        public int PunktyGracz = 0;
         public Game(string IPprzeciwnika) {
             this.IPPrzeciwnika = IPPrzeciwnika;
             network  =new GameNetworking(IPprzeciwnika);
@@ -38,7 +40,7 @@ namespace Speed.Backend
         public bool LegalnyRuch(int numer)
         {
             var KartaGracza = RękaGracza[numer - 1];
-            return Math.Abs(KartaNaStole.Value - KartaGracza.Value) <= 1 || KartaNaStole.Color == KartaGracza.Color || KartaGracza.Color == Color.Special || KartaNaStole.Color==Color.Special; 
+            return ((Math.Abs(KartaNaStole.Value - KartaGracza.Value) <= 1) || KartaNaStole.Color == KartaGracza.Color || KartaGracza.Color == Color.Special || KartaNaStole.Color==Color.Special) && KartaGracza.Color!=Color.None; 
         }
         //Dodac SEED
         public void SprawdzLock()
@@ -72,20 +74,20 @@ namespace Speed.Backend
             }
 
             // Dodaj figury (Król, Królowa, Walet) dla każdego koloru
-            Talia.Add(new Karta(11, $"heartJ", Color.Kier));
-            Talia.Add(new Karta(11, $"diamJ", Color.Karo));
-            Talia.Add(new Karta(11, $"heartJ", Color.Trefl));
-            Talia.Add(new Karta(11, $"spadeJ", Color.Pik));
+            Talia.Add(new Karta(10, $"clubJ", Color.Kier));
+            Talia.Add(new Karta(10, $"diamJ", Color.Karo));
+            Talia.Add(new Karta(10, $"heartJ", Color.Trefl));
+            Talia.Add(new Karta(10, $"spadeJ", Color.Pik));
 
-            Talia.Add(new Karta(12, $"heartQ", Color.Kier));
-            Talia.Add(new Karta(12, $"diamQ", Color.Karo));
-            Talia.Add(new Karta(12, $"heartQ", Color.Trefl));
-            Talia.Add(new Karta(12, $"spadeQ", Color.Pik));
+            Talia.Add(new Karta(11, $"clubQ", Color.Kier));
+            Talia.Add(new Karta(11, $"diamQ", Color.Karo));
+            Talia.Add(new Karta(11, $"heartQ", Color.Trefl));
+            Talia.Add(new Karta(11, $"spadeQ", Color.Pik));
 
-            Talia.Add(new Karta(13, $"heartK", Color.Kier));
-            Talia.Add(new Karta(13, $"diamK", Color.Karo));
-            Talia.Add(new Karta(13, $"heartK", Color.Trefl));
-            Talia.Add(new Karta(13, $"spadeK", Color.Pik));
+            Talia.Add(new Karta(12, $"clubK", Color.Kier));
+            Talia.Add(new Karta(12, $"diamK", Color.Karo));
+            Talia.Add(new Karta(12, $"heartK", Color.Trefl));
+            Talia.Add(new Karta(12, $"spadeK", Color.Pik));
             for(int i = 0; i!=2;i++)
             {
                 Talia.Add(new Karta(13, $"superFreeze", Color.Special));
@@ -97,10 +99,13 @@ namespace Speed.Backend
         {
             for (int i = 0; i < liczbaKart; i++)
             {
-                if (Talia.Count > 0) {
+                if (Talia.Count >= 0)
+                {
                     RękaGracza.Add(Talia.Last());
                     Talia.Remove(Talia.Last());
                 }
+                else
+                    RękaGracza.Add(new Karta(-5, $"reverse", Color.None));
             }
 
         }
@@ -109,18 +114,20 @@ namespace Speed.Backend
         {
             for (int i = 0; i < liczbaKart; i++)
             {
-                if (Talia.Count > 0)
+                if (Talia.Count >= 0)
                 {
                     RękaPrzeciwnika.Add(Talia.Last());
                     Talia.Remove(Talia.Last());
                 }
+                else
+                    RękaPrzeciwnika.Add(new Karta(-5, $"reverse", Color.None));
             }
         }
         public void RzucKarte(int numer)
         {
             KartaNaStole = RękaGracza[numer - 1];
             RękaGracza.RemoveAt(numer-1);
-            
+            if (Talia.Count > 0)
             RozdajKarty(1);
 
         }
@@ -128,7 +135,7 @@ namespace Speed.Backend
         {
             KartaNaStole = RękaPrzeciwnika[numer - 1];
             RękaPrzeciwnika.RemoveAt(numer - 1);
-
+            if(Talia.Count>0)
             RozdajKartyPrzeciwnikowi(1);
 
         }

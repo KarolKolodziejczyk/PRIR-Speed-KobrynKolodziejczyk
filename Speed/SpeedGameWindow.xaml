@@ -62,5 +62,6 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <Label x:Name="TestowyLabel" Content="T" HorizontalAlignment="Left" Margin="566,294,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

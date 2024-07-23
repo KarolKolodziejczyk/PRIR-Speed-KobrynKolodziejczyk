@@ -77,6 +77,8 @@ namespace Speed
         private void TaliaCount(int count)
         {
             LblDeckRemaining.Content = "x"+count;
+            SetPlayerPoints(this.APP.game.PunktyGracz);
+            SetEnemyPoints(this.APP.game.PunktyPrzeciwnik)l
         }
 
         private void SetEnemyPoints(int count)
@@ -100,11 +102,13 @@ namespace Speed
         private void BtnPlayerCard_MouseEnter(object sender, MouseEventArgs e)
         {
             MoveButton(sender, HoverPixelAmount);
+
         }
 
         private void BtnPlayerCard_MouseLeave(object sender, MouseEventArgs e)
         {
             MoveButton(sender, -HoverPixelAmount);
+
         }
 
         private  DateTime ConvertStringToDateTime(string dateString)
@@ -186,17 +190,20 @@ namespace Speed
         }
         private void aktualizujKarty()
         {
-            BtnPlayerCard1.Content = LoadCardImage(this.APP.game.RękaGracza[0].ImagePath);
-            BtnPlayerCard2.Content = LoadCardImage(this.APP.game.RękaGracza[1].ImagePath);
-            BtnPlayerCard3.Content = LoadCardImage(this.APP.game.RękaGracza[2].ImagePath);
-            BtnPlayerCard4.Content = LoadCardImage(this.APP.game.RękaGracza[3].ImagePath);
-            BtnPlayerCard5.Content = LoadCardImage(this.APP.game.RękaGracza[4].ImagePath);
+            var game = this.APP.game;
+
+            BtnPlayerCard1.Content = game.RękaGracza[0] != null ? LoadCardImage(game.RękaGracza[0].ImagePath) : LoadCardImage("reverse");
+            BtnPlayerCard2.Content = game.RękaGracza[1] != null ? LoadCardImage(game.RękaGracza[1].ImagePath) : LoadCardImage("reverse");
+            BtnPlayerCard3.Content = game.RękaGracza[2] != null ? LoadCardImage(game.RękaGracza[2].ImagePath) : LoadCardImage("reverse");
+            BtnPlayerCard4.Content = game.RękaGracza[3] != null ? LoadCardImage(game.RękaGracza[3].ImagePath) : LoadCardImage("reverse");
+            BtnPlayerCard5.Content = game.RękaGracza[4] != null ? LoadCardImage(game.RękaGracza[4].ImagePath) : LoadCardImage("reverse");
         }
         private void RzucKarteFront(int numer)
         {
             if (this.APP.OnCardChosen(numer))
             {
                 TableChangeEffect();
+                this.TestowyLabel.Content = this.APP.game.RękaGracza[numer - 1].SerializeToJson();
                 LblTableCard.Content = LoadCardImage(this.APP.game.RękaGracza[numer - 1].ImagePath);
                 this.APP.game.RzucKarte(numer);
                 this.TaliaCount(this.APP.game.Talia.Count());
@@ -205,13 +212,12 @@ namespace Speed
         }
         private void ObierzKarte(int numer)
         {
-
                 TableChangeEffect();
                 //MessageBox.Show("Zagrywam" + this.APP.game.RękaPrzeciwnika[numer - 1].ImagePath);
                 LblTableCard.Content = LoadCardImage(this.APP.game.RękaPrzeciwnika[numer - 1].ImagePath);
+                this.TestowyLabel.Content = this.APP.game.RękaPrzeciwnika[numer - 1].SerializeToJson();
                 this.APP.game.RzucKartePrzeciwnik(numer);
                 this.TaliaCount(this.APP.game.Talia.Count());
-
         }
         private void BtnPlayerCard1_Click(object sender, RoutedEventArgs e)
         {
