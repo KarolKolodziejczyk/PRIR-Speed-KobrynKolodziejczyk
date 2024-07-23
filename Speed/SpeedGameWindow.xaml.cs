@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,7 +15,7 @@ namespace Speed
         private int HoverPixelAmount { get; } = 20;
         private bool CzyHost = false;
         private List<Button> playerCardButtons;
-
+        
         public SpeedGameWindow(string IP, bool s)
         {
 
@@ -29,8 +30,8 @@ namespace Speed
                 // Aktualizuj("JESTEM HOSTEM");
                 APP.game.Init();
                 APP.network.SendToOpponent("[SG]?" + this.APP.game.seed);
-                for (int i = 0; i != 5; i++)
-                    APP.network.SendToOpponent("[TG]?" + this.APP.game.RękaPrzeciwnika[i].SerializeToJson());
+                //for (int i = 0; i != 5; i++)
+                //    APP.network.SendToOpponent("[TG]?" + this.APP.game.RękaPrzeciwnika[i].SerializeToJson());
 
 
                 aktualizujKarty();
@@ -106,21 +107,51 @@ namespace Speed
             MoveButton(sender, -HoverPixelAmount);
         }
 
-   
+        private  DateTime ConvertStringToDateTime(string dateString)
+        {
+            return DateTime.ParseExact(
+                dateString,
+                "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
+                CultureInfo.InvariantCulture.DateTimeFormat,
+                DateTimeStyles.AssumeUniversal
+            );
+        }
 
         private void OnMessageReceived(string message)
         {
-
+            
 
             // Podział wiadomości na części na podstawie separatora [TG]
             string[] parts = message.Split(new string[] { "?" }, StringSplitOptions.None);
-            if (parts.Length == 2 && parts[0] == "[SG]")
+            if (parts.Length == 2 && parts[0] == "[ZAG]")
+            {
+                //Tu wysylamy co sie dzieje
+                //var Czas = ConvertStringToDateTime(parts[1]);
+                Application.Current.Dispatcher.Invoke((Action)delegate
+                {
+                   // MessageBox.Show("ODEBRALEM" + message);
+                    ObierzKarte(Convert.ToInt32(parts[1]));
+                });
+                    // if (Czas > this.APP.game.Czas) this.APP.network.SendToOpponent("[Y]");
+                    // else this.APP.network.SendToOpponent("[N]");
+                }
+            else
+                if (parts.Length == 2 && parts[0] == "[SG]")
             {
                 this.APP.game.StworzTalie();
                 int liczba = Convert.ToInt32(parts[1]);
                 this.APP.game.TasujTalie(liczba);
-                this.APP.game.Talia.RemoveRange(this.APP.game.Talia.Count - 11, 10);
+               // this.APP.game.Talia.RemoveRange(this.APP.game.Talia.Count - 11, 10);
+                Application.Current.Dispatcher.Invoke((Action)delegate
+                {
+                    this.APP.game.RozdajKartyPrzeciwnikowi(5);
+                    this.APP.game.RozdajKarty(5);
+                    aktualizujKarty();
+                });
+                aktualizujKarty();
+
             }
+            else
 
                 if (parts.Length == 2 && parts[0] == "[TG]")
             {
@@ -134,7 +165,7 @@ namespace Speed
                         //MessageBox.Show($"Otrzymano wiadomość w Window: {karta.SerializeToJson()}");
                         this.APP.game.RękaGracza.Add(karta);
 
-                        if (this.APP.game.RękaGracza.Count() == 5) aktualizujKarty();
+                       if (this.APP.game.RękaGracza.Count() == 5) aktualizujKarty();
                         //MessageBox.Show("Talia otrzymana i zrekonstruowana na nowo.");
 
                     });
@@ -163,11 +194,24 @@ namespace Speed
         }
         private void RzucKarteFront(int numer)
         {
-            TableChangeEffect();
-            LblTableCard.Content = LoadCardImage(this.APP.game.RękaGracza[numer-1].ImagePath);
-            this.APP.game.RzucKarte(numer);
-            this.TaliaCount(this.APP.game.Talia.Count());
-            aktualizujKarty();
+            if (this.APP.OnCardChosen(numer))
+            {
+                TableChangeEffect();
+                LblTableCard.Content = LoadCardImage(this.APP.game.RękaGracza[numer - 1].ImagePath);
+                this.APP.game.RzucKarte(numer);
+                this.TaliaCount(this.APP.game.Talia.Count());
+                aktualizujKarty();
+            }
+        }
+        private void ObierzKarte(int numer)
+        {
+
+                TableChangeEffect();
+                //MessageBox.Show("Zagrywam" + this.APP.game.RękaPrzeciwnika[numer - 1].ImagePath);
+                LblTableCard.Content = LoadCardImage(this.APP.game.RękaPrzeciwnika[numer - 1].ImagePath);
+                this.APP.game.RzucKartePrzeciwnik(numer);
+                this.TaliaCount(this.APP.game.Talia.Count());
+
         }
         private void BtnPlayerCard1_Click(object sender, RoutedEventArgs e)
         {

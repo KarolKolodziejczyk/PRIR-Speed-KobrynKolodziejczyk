@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -29,7 +31,16 @@ namespace Speed.Backend
             cancellationTokenSource = new CancellationTokenSource();
             listenTask = Task.Run(() => ListenForConnections(cancellationTokenSource.Token));
         }
-
+        public DateTime CzasSerwer()
+        {
+            var myHttpWebRequest = (HttpWebRequest)WebRequest.Create("http://www.microsoft.com");
+            var response = myHttpWebRequest.GetResponse();
+            string todaysDates = response.Headers["date"];
+            return DateTime.ParseExact(todaysDates,
+                                       "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
+                                       CultureInfo.InvariantCulture.DateTimeFormat,
+                                       DateTimeStyles.AssumeUniversal);
+        }
         public async Task SendToOpponent(string message)
         {
             if (!string.IsNullOrEmpty(IPPrzeciwnika))

@@ -35,18 +35,27 @@ namespace Speed
             // Tu można dodać dodatkową logikę do obsługi wiadomości
         }
 
-        public void OnCardChosen()
+        public bool OnCardChosen(int numer)
         {
             // Logika wyboru karty
             // Przykład wysłania wiadomości do przeciwnika
-            network.SendToOpponent("CardChosen").Wait();
+           
+            if (this.game.LegalnyRuch(numer))
+            {
+     
+
+                    network.SendToOpponent("[ZAG]?" + numer);
+                    return true;
+                
+                }
+                return false;
+
         }
 
         public void OnGameStart()
         {
             // Logika rozpoczęcia gry
             // Przykład wysłania wiadomości do przeciwnika
-            network.SendToOpponent("GameStart").Wait();
         }
 
         public void OnStop()

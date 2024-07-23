@@ -15,7 +15,10 @@ namespace Speed.Backend
         public List<Karta> Talia = new List<Karta>();
         public List<Karta> RękaGracza = new List<Karta>();
         public List<Karta> RękaPrzeciwnika = new List<Karta>();
+        public Karta KartaNaStole =new Karta(6, $"diam{6}", Color.Karo);
         public int seed;
+        public bool CzyLocked = false;
+        public DateTime Czas = new DateTime(0);
         public Game(string IPprzeciwnika) {
             this.IPPrzeciwnika = IPPrzeciwnika;
             network  =new GameNetworking(IPprzeciwnika);
@@ -32,7 +35,18 @@ namespace Speed.Backend
             //network.SendToOpponent(Talia);
 
         }
+        public bool LegalnyRuch(int numer)
+        {
+            var KartaGracza = RękaGracza[numer - 1];
+            return Math.Abs(KartaNaStole.Value - KartaGracza.Value) <= 1 || KartaNaStole.Color == KartaGracza.Color || KartaGracza.Color == Color.Special || KartaNaStole.Color==Color.Special; 
+        }
         //Dodac SEED
+        public void SprawdzLock()
+        {
+            for (int i = 0; i != 5; i++)
+                if (LegalnyRuch(i)) return;
+            CzyLocked= true;
+        }
         public void TasujTalie(int Seed)
         {
             Random rng = new Random(Seed); 
@@ -79,7 +93,7 @@ namespace Speed.Backend
                 Talia.Add(new Karta(13, $"superSwap", Color.Special));
             }
         }
-        private void RozdajKarty(int liczbaKart)
+        public void RozdajKarty(int liczbaKart)
         {
             for (int i = 0; i < liczbaKart; i++)
             {
@@ -91,7 +105,7 @@ namespace Speed.Backend
 
         }
 
-        private void RozdajKartyPrzeciwnikowi(int liczbaKart)
+        public void RozdajKartyPrzeciwnikowi(int liczbaKart)
         {
             for (int i = 0; i < liczbaKart; i++)
             {
@@ -104,9 +118,18 @@ namespace Speed.Backend
         }
         public void RzucKarte(int numer)
         {
-
+            KartaNaStole = RękaGracza[numer - 1];
             RękaGracza.RemoveAt(numer-1);
+            
             RozdajKarty(1);
+
+        }
+        public void RzucKartePrzeciwnik(int numer)
+        {
+            KartaNaStole = RękaPrzeciwnika[numer - 1];
+            RękaPrzeciwnika.RemoveAt(numer - 1);
+
+            RozdajKartyPrzeciwnikowi(1);
 
         }
 
