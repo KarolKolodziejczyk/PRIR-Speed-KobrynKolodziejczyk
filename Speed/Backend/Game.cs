@@ -119,25 +119,28 @@ namespace Speed.Backend
                     RękaPrzeciwnika.Add(Talia.Last());
                     Talia.Remove(Talia.Last());
                 }
-                else
-                    RękaPrzeciwnika.Add(new Karta(-5, $"reverse", Color.None));
+           
             }
         }
         public void RzucKarte(int numer)
         {
             KartaNaStole = RękaGracza[numer - 1];
+            this.PunktyGracz += RękaGracza[numer - 1].Value;
             RękaGracza.RemoveAt(numer-1);
             if (Talia.Count > 0)
             RozdajKarty(1);
-
+            else
+                RękaGracza.Add(new Karta(-5, $"reverse", Color.None));
         }
         public void RzucKartePrzeciwnik(int numer)
         {
             KartaNaStole = RękaPrzeciwnika[numer - 1];
+            this.PunktyPrzeciwnik += RękaPrzeciwnika[numer - 1].Value;
             RękaPrzeciwnika.RemoveAt(numer - 1);
             if(Talia.Count>0)
             RozdajKartyPrzeciwnikowi(1);
-
+            else
+                RękaPrzeciwnika.Add(new Karta(-5, $"reverse", Color.None));
         }
 
         public Karta LosujKarteZTalii()

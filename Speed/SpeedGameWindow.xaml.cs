@@ -78,7 +78,7 @@ namespace Speed
         {
             LblDeckRemaining.Content = "x"+count;
             SetPlayerPoints(this.APP.game.PunktyGracz);
-            SetEnemyPoints(this.APP.game.PunktyPrzeciwnik)l
+            SetEnemyPoints(this.APP.game.PunktyPrzeciwnik);
         }
 
         private void SetEnemyPoints(int count)
