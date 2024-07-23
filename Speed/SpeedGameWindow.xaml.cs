@@ -224,8 +224,8 @@ namespace Speed
                     case "[L]":
                         Application.Current.Dispatcher.Invoke((Action)delegate
                         {
-                            EnemyLocked.Content = "L";
-                            if (GraczLocked.Content.ToString() == "L" && EnemyLocked.Content.ToString() == "L") KoniecGry();
+                            EnemyLocked.Content = "🔒";
+                            if (GraczLocked.Content.ToString() == "🔒" && EnemyLocked.Content.ToString() == "🔒") KoniecGry();
                         });
                         break;
 
@@ -284,8 +284,8 @@ namespace Speed
         public void AktualizujCzyLocked()
         {
             this.APP.network.SendToOpponent(this.APP.game.CzyLocked ? "[L]?1" : "[UL]?1");
-            GraczLocked.Content = this.APP.game.CzyLocked ? "L" : "";
-            if (GraczLocked.Content.ToString() == "L" && EnemyLocked.Content.ToString() == "L") KoniecGry();
+            GraczLocked.Content = this.APP.game.CzyLocked ? "🔒" : "";
+            if (GraczLocked.Content.ToString() == "🔒" && EnemyLocked.Content.ToString() == "🔒") KoniecGry();
         }
 
         private void KoniecGry(bool surrender = false) {
