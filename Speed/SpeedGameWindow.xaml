@@ -63,5 +63,7 @@
             </Label.RenderTransform>
         </Label>
         <Label x:Name="TestowyLabel" Content="T" HorizontalAlignment="Left" Margin="566,294,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="GraczLocked" Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="25,384,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="EnemyLocked" Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="1114,150,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

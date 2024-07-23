@@ -79,6 +79,8 @@ namespace Speed
             LblDeckRemaining.Content = "x"+count;
             SetPlayerPoints(this.APP.game.PunktyGracz);
             SetEnemyPoints(this.APP.game.PunktyPrzeciwnik);
+            AktualizujCzyLocked();
+
         }
 
         private void SetEnemyPoints(int count)
@@ -185,8 +187,9 @@ namespace Speed
                 MessageBox.Show($"Otrzymano wiadomość w Window: {message}");
             }
         }
-        public void Aktualizuj(string message)
+        public void AktualizujCzyLocked()
         {
+            //GraczLocked.Content = this.APP.game.CzyLocked ? "L" : "";
         }
         private void aktualizujKarty()
         {
@@ -208,6 +211,7 @@ namespace Speed
                 this.APP.game.RzucKarte(numer);
                 this.TaliaCount(this.APP.game.Talia.Count());
                 aktualizujKarty();
+
             }
         }
         private void ObierzKarte(int numer)

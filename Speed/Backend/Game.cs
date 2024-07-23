@@ -46,7 +46,7 @@ namespace Speed.Backend
         public void SprawdzLock()
         {
             for (int i = 0; i != 5; i++)
-                if (LegalnyRuch(i)) return;
+                if (LegalnyRuch(i)) { CzyLocked = false; return; }
             CzyLocked= true;
         }
         public void TasujTalie(int Seed)
@@ -131,6 +131,7 @@ namespace Speed.Backend
             RozdajKarty(1);
             else
                 RękaGracza.Add(new Karta(-5, $"reverse", Color.None));
+            //SprawdzLock();
         }
         public void RzucKartePrzeciwnik(int numer)
         {
@@ -141,6 +142,7 @@ namespace Speed.Backend
             RozdajKartyPrzeciwnikowi(1);
             else
                 RękaPrzeciwnika.Add(new Karta(-5, $"reverse", Color.None));
+            //SprawdzLock(); TUTAJ CRASHUJE
         }
 
         public Karta LosujKarteZTalii()
