@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -149,6 +150,23 @@ namespace Speed
             LblOpponentIP.Content = LbxLocalIPs.SelectedItem.ToString();
         }
 
-     
+        private void TxtOpponentIP_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TxtOpponentIP.IsFocused)
+            {
+                string ipAddress = TxtOpponentIP.Text;
+                string pattern = @"^((25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[0-1]?[0-9][0-9]?)$";
+                Regex regex = new Regex(pattern);
+
+                if (regex.IsMatch(ipAddress))
+                {
+                    LblOpponentIP.Content = ipAddress;
+                }
+                else
+                {
+                    LblOpponentIP.Content = "0.0.0.0";
+                }
+            }
+        }
     }
 }

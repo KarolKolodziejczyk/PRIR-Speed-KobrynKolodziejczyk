@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\matchmakingwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:matchmakingwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\matchmakingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:matchmakingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\hostwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:hostwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\ruleswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:ruleswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -19,20 +35,8 @@
       "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\hostwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:hostwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\speedgamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:speedgamewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\matchmakingwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:matchmakingwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\backend\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -57,10 +61,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\resultwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:resultwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|g:\\mojedokumenty\\prirspeed\\prir-speed-kobrynkolodziejczyk\\speed\\matchmakingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{98F34A72-317E-40F0-9F7B-251873E4DEFE}|Speed.csproj|solutionrelative:matchmakingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Pulpit\\APKA\\Speed.runtimeconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
@@ -106,7 +106,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -114,19 +114,92 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-23T14:19:04.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MatchmakingWindow.xaml.cs",
+              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MatchmakingWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MatchmakingWindow.xaml.cs",
+              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MatchmakingWindow.xaml.cs",
+              "RelativeToolTip": "MatchmakingWindow.xaml.cs",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAAwKgAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-13T17:24:33.062Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MatchmakingWindow.xaml",
+              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MatchmakingWindow.xaml",
+              "RelativeDocumentMoniker": "MatchmakingWindow.xaml",
+              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MatchmakingWindow.xaml",
+              "RelativeToolTip": "MatchmakingWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-23T11:03:37.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HostWindow.xaml",
+              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\HostWindow.xaml",
+              "RelativeDocumentMoniker": "HostWindow.xaml",
+              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\HostWindow.xaml",
+              "RelativeToolTip": "HostWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-23T19:48:55.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "RulesWindow.xaml",
               "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\RulesWindow.xaml",
               "RelativeDocumentMoniker": "RulesWindow.xaml",
-              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\RulesWindow.xaml*",
-              "RelativeToolTip": "RulesWindow.xaml*",
+              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\RulesWindow.xaml",
+              "RelativeToolTip": "RulesWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-07-23T19:50:33.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-23T19:48:59.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SpeedGameWindow.xaml",
+              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\SpeedGameWindow.xaml",
+              "RelativeDocumentMoniker": "SpeedGameWindow.xaml",
+              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\SpeedGameWindow.xaml",
+              "RelativeToolTip": "SpeedGameWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-07-13T17:20:17.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "SpeedGameApp.cs",
               "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\SpeedGameApp.cs",
               "RelativeDocumentMoniker": "SpeedGameApp.cs",
@@ -139,43 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SpeedGameWindow.xaml",
-              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\SpeedGameWindow.xaml",
-              "RelativeDocumentMoniker": "SpeedGameWindow.xaml",
-              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\SpeedGameWindow.xaml",
-              "RelativeToolTip": "SpeedGameWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-13T17:20:17.763Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-23T19:48:59.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "HostWindow.xaml",
-              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\HostWindow.xaml",
-              "RelativeDocumentMoniker": "HostWindow.xaml",
-              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\HostWindow.xaml",
-              "RelativeToolTip": "HostWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-23T19:48:55.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "SpeedGameWindow.xaml.cs",
               "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\SpeedGameWindow.xaml.cs",
               "RelativeDocumentMoniker": "SpeedGameWindow.xaml.cs",
@@ -188,32 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "App.xaml",
-              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-23T14:19:04.696Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MatchmakingWindow.xaml.cs",
-              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MatchmakingWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MatchmakingWindow.xaml.cs",
-              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MatchmakingWindow.xaml.cs",
-              "RelativeToolTip": "MatchmakingWindow.xaml.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAADwv4AAAAAhAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-13T17:24:33.062Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Game.cs",
               "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\Backend\\Game.cs",
               "RelativeDocumentMoniker": "Backend\\Game.cs",
@@ -226,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Networking.cs",
               "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\Backend\\Networking.cs",
               "RelativeDocumentMoniker": "Backend\\Networking.cs",
@@ -239,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Karta.cs",
               "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\Backend\\Karta.cs",
               "RelativeDocumentMoniker": "Backend\\Karta.cs",
@@ -252,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "GameNetworking.cs",
               "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\Backend\\GameNetworking.cs",
               "RelativeDocumentMoniker": "Backend\\GameNetworking.cs",
@@ -265,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "OptionsWindow.xaml",
               "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\OptionsWindow.xaml",
               "RelativeDocumentMoniker": "OptionsWindow.xaml",
@@ -277,7 +289,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "ResultWindow.xaml",
               "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\ResultWindow.xaml",
               "RelativeDocumentMoniker": "ResultWindow.xaml",
@@ -285,18 +297,6 @@
               "RelativeToolTip": "ResultWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-07-23T10:48:13.708Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "MatchmakingWindow.xaml",
-              "DocumentMoniker": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MatchmakingWindow.xaml",
-              "RelativeDocumentMoniker": "MatchmakingWindow.xaml",
-              "ToolTip": "G:\\MOJEDOKUMENTY\\PRIRSpeed\\PRIR-Speed-KobrynKolodziejczyk\\Speed\\MatchmakingWindow.xaml",
-              "RelativeToolTip": "MatchmakingWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-23T11:03:37.273Z",
               "EditorCaption": ""
             },
             {

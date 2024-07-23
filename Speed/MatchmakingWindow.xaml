@@ -32,7 +32,7 @@
         <ListView x:Name="LbxLocalIPs" Margin="34,206,325,17" Background="#FFF7F9F2" BorderBrush="#FF193A0D" Foreground="#FF193A0D" FontFamily="Franklin Gothic Medium" FontSize="14" SelectionChanged="LbxLocalIPs_SelectionChanged">
             <Button/>
         </ListView>
-        <TextBox x:Name="TxtOpponentIP" HorizontalAlignment="Left" Margin="34,119,0,0" TextWrapping="Wrap" Text="0.0.0.0" VerticalAlignment="Top" Width="241" BorderBrush="#FF193A0D" Foreground="#FF193A0D" SelectionBrush="#FFB1BB00" SelectionTextBrush="#FF5F2316" FontFamily="Franklin Gothic Medium Cond" FontSize="14" Height="23" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="TxtOpponentIP" HorizontalAlignment="Left" Margin="34,119,0,0" TextWrapping="Wrap" Text="0.0.0.0" VerticalAlignment="Top" Width="241" BorderBrush="#FF193A0D" Foreground="#FF193A0D" SelectionBrush="#FFB1BB00" SelectionTextBrush="#FF5F2316" FontFamily="Franklin Gothic Medium Cond" FontSize="14" Height="23" VerticalContentAlignment="Center" TextChanged="TxtOpponentIP_TextChanged"/>
         <Label Content="IPv4 address:" HorizontalAlignment="Left" Margin="34,93,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="14" Foreground="#FF193A0D"/>
         <Button x:Name="BtnBack" Content="Go Back" HorizontalAlignment="Left" Margin="289,359,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="140" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnBack_Click" >
             <Button.Resources>
