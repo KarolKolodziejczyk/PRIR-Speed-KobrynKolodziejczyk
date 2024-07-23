@@ -45,9 +45,9 @@ namespace Speed.Backend
         //Dodac SEED
         public void SprawdzLock()
         {
-            for (int i = 0; i != 5; i++)
-                if (LegalnyRuch(i)) { CzyLocked = false; return; }
-            CzyLocked= true;
+            for (int i = 1; i != 6; i++)
+                if (LegalnyRuch(i)) { this.CzyLocked = false; return; }
+            this.CzyLocked= true;
         }
         public void TasujTalie(int Seed)
         {
@@ -131,7 +131,7 @@ namespace Speed.Backend
             RozdajKarty(1);
             else
                 RękaGracza.Add(new Karta(-5, $"reverse", Color.None));
-            //SprawdzLock();
+            SprawdzLock();
         }
         public void RzucKartePrzeciwnik(int numer)
         {
@@ -142,7 +142,7 @@ namespace Speed.Backend
             RozdajKartyPrzeciwnikowi(1);
             else
                 RękaPrzeciwnika.Add(new Karta(-5, $"reverse", Color.None));
-            //SprawdzLock(); TUTAJ CRASHUJE
+            SprawdzLock();
         }
 
         public Karta LosujKarteZTalii()

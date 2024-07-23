@@ -125,10 +125,26 @@ namespace Speed
 
         private void OnMessageReceived(string message)
         {
-            
 
-            // Podział wiadomości na części na podstawie separatora [TG]
+       
+                    // Podział wiadomości na części na podstawie separatora [TG]
             string[] parts = message.Split(new string[] { "?" }, StringSplitOptions.None);
+            if (parts.Length == 2 && parts[0] == "[UL]")
+            {
+                Application.Current.Dispatcher.Invoke((Action)delegate
+                {
+                    EnemyLocked.Content = "";
+                });
+            } else
+
+            if (parts.Length == 2 && parts[0] == "[L]")
+            {
+                Application.Current.Dispatcher.Invoke((Action)delegate
+                {
+                    EnemyLocked.Content = "L";
+                });
+            } else
+
             if (parts.Length == 2 && parts[0] == "[ZAG]")
             {
                 //Tu wysylamy co sie dzieje
@@ -189,7 +205,16 @@ namespace Speed
         }
         public void AktualizujCzyLocked()
         {
-            //GraczLocked.Content = this.APP.game.CzyLocked ? "L" : "";
+            this.APP.network.SendToOpponent(this.APP.game.CzyLocked ? "[L]?1" : "[UL]?1");
+            GraczLocked.Content = this.APP.game.CzyLocked ? "L" : "";
+            if (GraczLocked.Content == "L" && EnemyLocked.Content == "L") KoniecGry();
+        }
+
+        private void KoniecGry(bool surrender = false) {
+            if (!surrender)
+                if (this.APP.game.PunktyGracz > this.APP.game.PunktyPrzeciwnik) MessageBox.Show("WYGRAŁEŚ!!"); else MessageBox.Show("Przegrałeś!");
+            else MessageBox.Show("Przegrana (Surrender)");
+            this.Close();
         }
         private void aktualizujKarty()
         {
@@ -200,6 +225,7 @@ namespace Speed
             BtnPlayerCard3.Content = game.RękaGracza[2] != null ? LoadCardImage(game.RękaGracza[2].ImagePath) : LoadCardImage("reverse");
             BtnPlayerCard4.Content = game.RękaGracza[3] != null ? LoadCardImage(game.RękaGracza[3].ImagePath) : LoadCardImage("reverse");
             BtnPlayerCard5.Content = game.RękaGracza[4] != null ? LoadCardImage(game.RękaGracza[4].ImagePath) : LoadCardImage("reverse");
+            AktualizujCzyLocked();
         }
         private void RzucKarteFront(int numer)
         {
@@ -256,7 +282,9 @@ namespace Speed
             ResultWindow info = new ResultWindow(ResultType.Surrender);
             info.Owner = this;
             info.ShowDialog();
+            KoniecGry();
             APP.OnSurrender();
+
             this.Close();
         }
         private void AnimateTableThread(object obj)
