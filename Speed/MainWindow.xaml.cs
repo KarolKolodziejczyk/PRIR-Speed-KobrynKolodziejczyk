@@ -32,11 +32,6 @@ namespace Speed
 
         private void BtnRules_Click(object sender, RoutedEventArgs e)
         {
-            // show rules window
-            // content: available normal cards
-            //          special cards
-            //          game rules - how it works
-
             this.Hide();
             RulesWindow rules = new RulesWindow();
             rules.ShowDialog();
@@ -45,8 +40,6 @@ namespace Speed
 
         private void BtnOptions_Click(object sender, RoutedEventArgs e)
         {
-            // Karol chciales wiec ci zostawiam to !!!
-
             this.Hide();
             OptionsWindow options = new OptionsWindow();
             options.ShowDialog();
@@ -57,6 +50,14 @@ namespace Speed
         {
             this.Hide();
             MatchmakingWindow game = new MatchmakingWindow();
+            game.ShowDialog();
+            this.Show();
+        }
+
+        private void BtnHostGame_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            HostWindow game = new HostWindow();
             game.ShowDialog();
             this.Show();
         }

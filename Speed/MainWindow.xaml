@@ -19,7 +19,7 @@
             </Button.Resources>
         </Button>
         <Label x:Name="LblLogotype" Content="" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Height="200" Width="350" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button x:Name="BtnOptions" Content="Options" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="140" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnOptions_Click" >
+        <Button x:Name="BtnHostGame" Content="Host Game" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="170" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnHostGame_Click" >
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="5"/>

@@ -3,3 +3,4 @@ G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7
 G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\publish\Speed.deps.json
 G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\publish\Speed.runtimeconfig.json
 G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\publish\Speed.pdb
+G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\bin\Release\net7.0-windows\publish\Newtonsoft.Json.dll

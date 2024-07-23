@@ -18,7 +18,7 @@ namespace Speed
         public SpeedGameWindow(string IP, bool s)
         {
 
-            playerCardButtons = new List<Button> {BtnPlayerCard1, BtnPlayerCard2, BtnPlayerCard3, BtnPlayerCard4, BtnPlayerCard5 };
+            playerCardButtons = new List<Button> { BtnPlayerCard1, BtnPlayerCard2, BtnPlayerCard3, BtnPlayerCard4, BtnPlayerCard5 };
 
             InitializeComponent();
             //Aktualizuj("1");
@@ -26,16 +26,17 @@ namespace Speed
             APP = new SpeedGameApp(IP);
             if (CzyHost)
             {
-               // Aktualizuj("JESTEM HOSTEM");
+                // Aktualizuj("JESTEM HOSTEM");
                 APP.game.Init();
-                for(int i=0; i !=5;i++)
+                APP.network.SendToOpponent("[SG]?" + this.APP.game.seed);
+                for (int i = 0; i != 5; i++)
                     APP.network.SendToOpponent("[TG]?" + this.APP.game.RękaPrzeciwnika[i].SerializeToJson());
+
 
                 aktualizujKarty();
             }
-            // Testowe karty
             // Aktualizuj(this.APP.game.RękaGracza[0].ImagePath);
-     
+
             LblEnemyCard1.Content = LoadCardImage("reverse");
             LblEnemyCard2.Content = LoadCardImage("reverse");
             LblEnemyCard3.Content = LoadCardImage("reverse");
@@ -43,6 +44,20 @@ namespace Speed
             LblEnemyCard5.Content = LoadCardImage("reverse");
             LblEnemy.Content = LoadCardImage("opponent");
 
+            LblDeck1.Content = LoadCardImage("reverse");
+            LblDeck2.Content = LoadCardImage("reverse");
+            LblTableChangeTop.Content = LoadCardImage("tableChangeIcon");
+            LblTableChangeBottom.Content = LoadCardImage("tableChangeIcon");
+            LblTableChangeTop.Visibility = Visibility.Hidden;
+            LblTableChangeBottom.Visibility = Visibility.Hidden;
+
+            //LblTableCard.Content = LoadCardImage("noCard");
+            LblTableCard.Content = LoadCardImage("diam6");
+
+            // UI info setup
+            TaliaCount(40);
+            SetPlayerPoints(0);
+            SetEnemyPoints(0);
             this.APP.network.MessageReceived += OnMessageReceived; // Subskrybuj zdarzenie odbioru wiadomości
         }
 
@@ -54,7 +69,19 @@ namespace Speed
             image.Source = bitmap;
             return image;
         }
+        private void SetPlayerPoints(int count)
+        {
+            LblPlayerPoints.Content = "Points: " + count;
+        }
+        private void TaliaCount(int count)
+        {
+            LblDeckRemaining.Content = "x"+count;
+        }
 
+        private void SetEnemyPoints(int count)
+        {
+            LblEnemyPoints.Content = "Enemy Points: " + count;
+        }
         private async void BtnTest_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("Wysylam");
@@ -79,33 +106,38 @@ namespace Speed
             MoveButton(sender, -HoverPixelAmount);
         }
 
-        private void BtnPlayerCard1_Click(object sender, RoutedEventArgs e)
-        {
-            // Obsługa kliknięcia karty gracza
-        }
+   
 
         private void OnMessageReceived(string message)
         {
 
+
             // Podział wiadomości na części na podstawie separatora [TG]
             string[] parts = message.Split(new string[] { "?" }, StringSplitOptions.None);
+            if (parts.Length == 2 && parts[0] == "[SG]")
+            {
+                this.APP.game.StworzTalie();
+                int liczba = Convert.ToInt32(parts[1]);
+                this.APP.game.TasujTalie(liczba);
+                this.APP.game.Talia.RemoveRange(this.APP.game.Talia.Count - 11, 10);
+            }
 
-            if (parts.Length == 2 && parts[0] == "[TG]")
+                if (parts.Length == 2 && parts[0] == "[TG]")
             {
                 // Rekonstrukcja tali na nowo
                 try
                 {
-                Application.Current.Dispatcher.Invoke((Action)delegate
-                {
+                    Application.Current.Dispatcher.Invoke((Action)delegate
+                    {
 
-                    Karta karta = new Karta(parts[1]);
-                    //MessageBox.Show($"Otrzymano wiadomość w Window: {karta.SerializeToJson()}");
-                    this.APP.game.RękaGracza.Add(karta);
+                        Karta karta = new Karta(parts[1]);
+                        //MessageBox.Show($"Otrzymano wiadomość w Window: {karta.SerializeToJson()}");
+                        this.APP.game.RękaGracza.Add(karta);
 
-                    if (this.APP.game.RękaGracza.Count() == 5) aktualizujKarty();
-                    //MessageBox.Show("Talia otrzymana i zrekonstruowana na nowo.");
+                        if (this.APP.game.RękaGracza.Count() == 5) aktualizujKarty();
+                        //MessageBox.Show("Talia otrzymana i zrekonstruowana na nowo.");
 
-                });                    
+                    });
 
                 }
                 catch (Exception ex)
@@ -115,12 +147,11 @@ namespace Speed
             }
             else
             {
-               MessageBox.Show($"Otrzymano wiadomość w Window: {message}");
+                MessageBox.Show($"Otrzymano wiadomość w Window: {message}");
             }
         }
         public void Aktualizuj(string message)
         {
-            LblTest.Content = message;
         }
         private void aktualizujKarty()
         {
@@ -130,5 +161,67 @@ namespace Speed
             BtnPlayerCard4.Content = LoadCardImage(this.APP.game.RękaGracza[3].ImagePath);
             BtnPlayerCard5.Content = LoadCardImage(this.APP.game.RękaGracza[4].ImagePath);
         }
+        private void RzucKarteFront(int numer)
+        {
+            TableChangeEffect();
+            LblTableCard.Content = LoadCardImage(this.APP.game.RękaGracza[numer-1].ImagePath);
+            this.APP.game.RzucKarte(numer);
+            this.TaliaCount(this.APP.game.Talia.Count());
+            aktualizujKarty();
+        }
+        private void BtnPlayerCard1_Click(object sender, RoutedEventArgs e)
+        {
+            // Obsługa kliknięcia karty gracza
+            RzucKarteFront(1);
+        }
+        private void BtnPlayerCard2_Click(object sender, RoutedEventArgs e)
+        {
+            RzucKarteFront(2);
+
+        }
+
+        private void BtnPlayerCard3_Click(object sender, RoutedEventArgs e)
+        {
+            RzucKarteFront(3);
+
+        }
+        private void BtnPlayerCard4_Click(object sender, RoutedEventArgs e)
+        {
+            RzucKarteFront(4);
+
+        }
+        private void BtnPlayerCard5_Click(object sender, RoutedEventArgs e)
+        {
+            RzucKarteFront(5);
+        }
+
+        private void BtnSurrender_Click(object sender, RoutedEventArgs e)
+        {
+            // OnPlayerSurrender -> safe delete + thread break
+
+            ResultWindow info = new ResultWindow(ResultType.Surrender);
+            info.Owner = this;
+            info.ShowDialog();
+            APP.OnSurrender();
+            this.Close();
+        }
+        private void AnimateTableThread(object obj)
+        {
+            if (obj is Label label)
+            {
+                label.Dispatcher.Invoke(() => label.Visibility = Visibility.Visible);
+                Thread.Sleep(1000);
+                label.Dispatcher.Invoke(() => label.Visibility = Visibility.Hidden);
+            }
+        }
+
+        private void TableChangeEffect()
+        {
+            Thread t1 = new Thread(AnimateTableThread);
+            Thread t2 = new Thread(AnimateTableThread);
+            t1.Start(LblTableChangeTop);
+            t2.Start(LblTableChangeBottom);
+        }
+
     }
 }

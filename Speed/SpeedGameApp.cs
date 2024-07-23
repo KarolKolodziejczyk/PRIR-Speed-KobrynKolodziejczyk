@@ -59,7 +59,8 @@ namespace Speed
         {
             // Logika poddania się
             // Przykład wysłania wiadomości do przeciwnika
-            network.SendToOpponent("Surrender").Wait();
+            network.SendToOpponent("[SU]?Surrender");
+            network.Stop();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Speed.Backend
         public List<Karta> Talia = new List<Karta>();
         public List<Karta> RękaGracza = new List<Karta>();
         public List<Karta> RękaPrzeciwnika = new List<Karta>();
-
+        public int seed;
         public Game(string IPprzeciwnika) {
             this.IPPrzeciwnika = IPPrzeciwnika;
             network  =new GameNetworking(IPprzeciwnika);
@@ -23,16 +23,19 @@ namespace Speed.Backend
         public void Init()
         {
             StworzTalie();
-            TasujTalie();
+            Random rng = new Random();
+            seed = rng.Next();
+            TasujTalie(seed);
 
             RozdajKarty(5);
             RozdajKartyPrzeciwnikowi(5);
             //network.SendToOpponent(Talia);
 
         }
-        private void TasujTalie()
+        //Dodac SEED
+        public void TasujTalie(int Seed)
         {
-            Random rng = new Random();
+            Random rng = new Random(Seed); 
             int n = Talia.Count;
             while (n > 1)
             {
@@ -43,7 +46,7 @@ namespace Speed.Backend
                 Talia[n] = value;
             }
         }
-        private void StworzTalie()
+        public void StworzTalie()
         {
             for (int i = 2; i <= 9; i++)
             {
@@ -69,12 +72,21 @@ namespace Speed.Backend
             Talia.Add(new Karta(13, $"diamK", Color.Karo));
             Talia.Add(new Karta(13, $"heartK", Color.Trefl));
             Talia.Add(new Karta(13, $"spadeK", Color.Pik));
+            for(int i = 0; i!=2;i++)
+            {
+                Talia.Add(new Karta(13, $"superFreeze", Color.Special));
+                Talia.Add(new Karta(13, $"superPeek", Color.Special));
+                Talia.Add(new Karta(13, $"superSwap", Color.Special));
+            }
         }
         private void RozdajKarty(int liczbaKart)
         {
             for (int i = 0; i < liczbaKart; i++)
             {
-                RękaGracza.Add(LosujKarteZTalii());
+                if (Talia.Count > 0) {
+                    RękaGracza.Add(Talia.Last());
+                    Talia.Remove(Talia.Last());
+                }
             }
 
         }
@@ -83,8 +95,19 @@ namespace Speed.Backend
         {
             for (int i = 0; i < liczbaKart; i++)
             {
-                RękaPrzeciwnika.Add(LosujKarteZTalii());
+                if (Talia.Count > 0)
+                {
+                    RękaPrzeciwnika.Add(Talia.Last());
+                    Talia.Remove(Talia.Last());
+                }
             }
+        }
+        public void RzucKarte(int numer)
+        {
+
+            RękaGracza.RemoveAt(numer-1);
+            RozdajKarty(1);
+
         }
 
         public Karta LosujKarteZTalii()

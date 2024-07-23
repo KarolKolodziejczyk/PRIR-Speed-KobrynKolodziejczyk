@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
   <PropertyGroup>
     <_LastSelectedProfileId>G:\MOJEDOKUMENTY\PRIRSpeed\PRIR-Speed-KobrynKolodziejczyk\Speed\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
@@ -9,10 +10,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="HostWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MatchmakingWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="OptionsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ResultWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="RulesWindow.xaml.cs">
@@ -23,6 +30,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="HostWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -30,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="OptionsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResultWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RulesWindow.xaml">
