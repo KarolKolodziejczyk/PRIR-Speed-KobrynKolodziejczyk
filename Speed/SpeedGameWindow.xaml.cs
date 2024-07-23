@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Newtonsoft.Json;
 using Speed.Backend;
@@ -15,7 +16,9 @@ namespace Speed
         private int HoverPixelAmount { get; } = 20;
         private bool CzyHost = false;
         private List<Button> playerCardButtons;
-        
+        private bool CzyFreeze = false;
+        private bool CzyPeek = false;
+
         public SpeedGameWindow(string IP, bool s)
         {
 
@@ -112,7 +115,57 @@ namespace Speed
             MoveButton(sender, -HoverPixelAmount);
 
         }
+        private async Task Freeze()
+        {
+            CzyFreeze = true;
+            await Dispatcher.InvokeAsync(() =>
+            {
+                Background = new SolidColorBrush(Colors.LightBlue);
+            });
 
+            await Task.Delay(10000); // Oczekuje 10 sekund asynchronicznie
+
+            await Dispatcher.InvokeAsync(() =>
+            {
+                WyłączMrożenie();
+                string hexColor = "#FFE0FFA0";
+                Background = new SolidColorBrush((System.Windows.Media.Color)ColorConverter.ConvertFromString(hexColor));
+            });
+        }
+        
+        private void PeekAktualizuj()
+        {
+            var game = this.APP.game;
+
+            LblEnemyCard1.Content = LoadCardImage(game.RękaPrzeciwnika[0].ImagePath);
+            LblEnemyCard2.Content = LoadCardImage(game.RękaPrzeciwnika[1].ImagePath);
+            LblEnemyCard3.Content = LoadCardImage(game.RękaPrzeciwnika[2].ImagePath);
+            LblEnemyCard4.Content = LoadCardImage(game.RękaPrzeciwnika[3].ImagePath);
+            LblEnemyCard5.Content = LoadCardImage(game.RękaPrzeciwnika[4].ImagePath);
+        }
+        private async Task Peek()
+        {
+            this.CzyPeek = true;
+            var game = this.APP.game;
+            await Dispatcher.InvokeAsync(() =>
+            {
+                LblEnemyCard1.Content = LoadCardImage(game.RękaPrzeciwnika[0].ImagePath);
+                LblEnemyCard2.Content = LoadCardImage(game.RękaPrzeciwnika[1].ImagePath);
+                LblEnemyCard3.Content = LoadCardImage(game.RękaPrzeciwnika[2].ImagePath);
+                LblEnemyCard4.Content = LoadCardImage(game.RękaPrzeciwnika[3].ImagePath);
+                LblEnemyCard5.Content = LoadCardImage(game.RękaPrzeciwnika[4].ImagePath);
+            });
+            await Task.Delay(10000); // Oczekuje 10 sekund asynchronicznie
+            this.CzyPeek = false;
+            await Dispatcher.InvokeAsync(() =>
+            {
+                LblEnemyCard1.Content = LoadCardImage("reverse");
+                LblEnemyCard2.Content = LoadCardImage("reverse");
+                LblEnemyCard3.Content = LoadCardImage("reverse");
+                LblEnemyCard4.Content = LoadCardImage("reverse");
+                LblEnemyCard5.Content = LoadCardImage("reverse");
+            });
+        }
         private  DateTime ConvertStringToDateTime(string dateString)
         {
             return DateTime.ParseExact(
@@ -122,93 +175,110 @@ namespace Speed
                 DateTimeStyles.AssumeUniversal
             );
         }
+ 
 
+        private void WyłączMrożenie()
+        {
+            CzyFreeze = false;
+        }
         private void OnMessageReceived(string message)
         {
 
-       
-                    // Podział wiadomości na części na podstawie separatora [TG]
+
             string[] parts = message.Split(new string[] { "?" }, StringSplitOptions.None);
-            if (parts.Length == 2 && parts[0] == "[KG]")
+            if (parts.Length == 2)
             {
-                Application.Current.Dispatcher.Invoke((Action)delegate
-                {
-                    KoniecGry();
-                });
-            }
-            else
-           if (parts.Length == 2 && parts[0] == "[UL]")
-            {
-                Application.Current.Dispatcher.Invoke((Action)delegate
-                {
-                    EnemyLocked.Content = "";
-                });
-            } else
+                string command = parts[0];
+                string parameter = parts[1];
 
-            if (parts.Length == 2 && parts[0] == "[L]")
-            {
-                Application.Current.Dispatcher.Invoke((Action)delegate
+                switch (command)
                 {
-                    EnemyLocked.Content = "L";
-                });
-            } else
+                    case "[FRIZ]":
+                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        {
+                           // MessageBox.Show("sUPEFRIZZ");
+                            Freeze();
+                        });
+                    break;
+                    case "[SWAP]":
+                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        {
+                            Swap();
+                            aktualizujKarty();
+                        });
+                     break;
+                    case "[KG]":
+                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        {
+                            KoniecGry(Convert.ToBoolean(parameter));
+                        });
+                        break;
 
-            if (parts.Length == 2 && parts[0] == "[ZAG]")
-            {
-                //Tu wysylamy co sie dzieje
-                //var Czas = ConvertStringToDateTime(parts[1]);
-                Application.Current.Dispatcher.Invoke((Action)delegate
-                {
-                   // MessageBox.Show("ODEBRALEM" + message);
-                    ObierzKarte(Convert.ToInt32(parts[1]));
-                });
-                    // if (Czas > this.APP.game.Czas) this.APP.network.SendToOpponent("[Y]");
-                    // else this.APP.network.SendToOpponent("[N]");
+                    case "[UL]":
+                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        {
+                            EnemyLocked.Content = "";
+                        });
+                        break;
+
+                    case "[L]":
+                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        {
+                            EnemyLocked.Content = "L";
+                            if (GraczLocked.Content.ToString() == "L" && EnemyLocked.Content.ToString() == "L") KoniecGry();
+                        });
+                        break;
+
+                    case "[ZAG]":
+                        // Tu wysylamy co sie dzieje
+                        // var Czas = ConvertStringToDateTime(parts[1]);
+                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        {
+                            // MessageBox.Show("ODEBRALEM" + message);
+                            ObierzKarte(Convert.ToInt32(parameter));
+                        });
+                        // if (Czas > this.APP.game.Czas) this.APP.network.SendToOpponent("[Y]");
+                        // else this.APP.network.SendToOpponent("[N]");
+                        break;
+
+                    case "[SG]":
+                        this.APP.game.StworzTalie();
+                        int liczba = Convert.ToInt32(parameter);
+                        this.APP.game.TasujTalie(liczba);
+                        // this.APP.game.Talia.RemoveRange(this.APP.game.Talia.Count - 11, 10);
+                        Application.Current.Dispatcher.Invoke((Action)delegate
+                        {
+                            this.APP.game.RozdajKartyPrzeciwnikowi(5);
+                            this.APP.game.RozdajKarty(5);
+                            aktualizujKarty();
+                        });
+                        break;
+                  
+                    case "[TG]":
+                        // Rekonstrukcja tali na nowo
+                        try
+                        {
+                            Application.Current.Dispatcher.Invoke((Action)delegate
+                            {
+                                Karta karta = new Karta(parameter);
+                                // MessageBox.Show($"Otrzymano wiadomość w Window: {karta.SerializeToJson()}");
+                                this.APP.game.RękaGracza.Add(karta);
+
+                                if (this.APP.game.RękaGracza.Count == 5)
+                                    aktualizujKarty();
+                                // MessageBox.Show("Talia otrzymana i zrekonstruowana na nowo.");
+                            });
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Błąd podczas deserializacji tali: {ex.Message}");
+                        }
+                        break;
+
+                    default:
+                        MessageBox.Show($"Otrzymano wiadomość w Window: {message}");
+                        break;
                 }
-            else
-                if (parts.Length == 2 && parts[0] == "[SG]")
-            {
-                this.APP.game.StworzTalie();
-                int liczba = Convert.ToInt32(parts[1]);
-                this.APP.game.TasujTalie(liczba);
-               // this.APP.game.Talia.RemoveRange(this.APP.game.Talia.Count - 11, 10);
-                Application.Current.Dispatcher.Invoke((Action)delegate
-                {
-                    this.APP.game.RozdajKartyPrzeciwnikowi(5);
-                    this.APP.game.RozdajKarty(5);
-                    aktualizujKarty();
-                });
-                aktualizujKarty();
-
-            }
-            else
-
-                if (parts.Length == 2 && parts[0] == "[TG]")
-            {
-                // Rekonstrukcja tali na nowo
-                try
-                {
-                    Application.Current.Dispatcher.Invoke((Action)delegate
-                    {
-
-                        Karta karta = new Karta(parts[1]);
-                        //MessageBox.Show($"Otrzymano wiadomość w Window: {karta.SerializeToJson()}");
-                        this.APP.game.RękaGracza.Add(karta);
-
-                       if (this.APP.game.RękaGracza.Count() == 5) aktualizujKarty();
-                        //MessageBox.Show("Talia otrzymana i zrekonstruowana na nowo.");
-
-                    });
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Błąd podczas deserializacji tali: {ex.Message}");
-                }
-            }
-            else
-            {
-                MessageBox.Show($"Otrzymano wiadomość w Window: {message}");
             }
         }
         public void AktualizujCzyLocked()
@@ -222,7 +292,7 @@ namespace Speed
             if (!this.APP.game.Koniec)
             {
                 this.APP.game.Koniec = true;
-                this.APP.network.SendToOpponent("[KG]?1");
+                this.APP.network.SendToOpponent("[KG]?"+surrender);
                 ResultWindow info;
                 if (!surrender)
                 {
@@ -240,6 +310,14 @@ namespace Speed
                 Application.Current.Shutdown();
             }
         }
+        private void Swap()
+        {
+            var tk = this.APP.game.RękaGracza;
+            this.APP.game.RękaGracza = this.APP.game.RękaPrzeciwnika;
+            this.APP.game.RękaPrzeciwnika = tk;
+            if (CzyPeek) PeekAktualizuj();
+
+        }
         private void aktualizujKarty()
         {
             var game = this.APP.game;
@@ -253,15 +331,30 @@ namespace Speed
         }
         private void RzucKarteFront(int numer)
         {
-            if (this.APP.OnCardChosen(numer))
-            {
-                TableChangeEffect();
-                this.TestowyLabel.Content = this.APP.game.RękaGracza[numer - 1].SerializeToJson();
-                LblTableCard.Content = LoadCardImage(this.APP.game.RękaGracza[numer - 1].ImagePath);
-                this.APP.game.RzucKarte(numer);
-                this.TaliaCount(this.APP.game.Talia.Count());
-                aktualizujKarty();
+            bool czySwap = false;
 
+            if (!CzyFreeze)
+            {
+                if (this.APP.OnCardChosen(numer))
+                {
+                    TableChangeEffect();
+                    this.TestowyLabel.Content = this.APP.game.RękaGracza[numer - 1].SerializeToJson();
+                    LblTableCard.Content = LoadCardImage(this.APP.game.RękaGracza[numer - 1].ImagePath);
+                    if (this.APP.game.RękaGracza[numer - 1].Value == 13)
+                        this.APP.network.SendToOpponent("[FRIZ]?1");
+                    if (this.APP.game.RękaGracza[numer - 1].Value == 14)
+                        this.Peek();
+                    if (this.APP.game.RękaGracza[numer - 1].Value == 15)
+                    {
+                        this.APP.network.SendToOpponent("[SWAP]?1");
+                        czySwap = true;
+                    }
+                    this.APP.game.RzucKarte(numer);
+                    if (czySwap) Swap();
+                    this.TaliaCount(this.APP.game.Talia.Count());
+                    aktualizujKarty();
+
+                }
             }
         }
         private void ObierzKarte(int numer)
@@ -272,6 +365,8 @@ namespace Speed
                 this.TestowyLabel.Content = this.APP.game.RękaPrzeciwnika[numer - 1].SerializeToJson();
                 this.APP.game.RzucKartePrzeciwnik(numer);
                 this.TaliaCount(this.APP.game.Talia.Count());
+                if (CzyPeek) PeekAktualizuj();
+
         }
         private void BtnPlayerCard1_Click(object sender, RoutedEventArgs e)
         {

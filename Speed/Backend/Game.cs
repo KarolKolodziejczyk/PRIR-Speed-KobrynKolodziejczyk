@@ -92,8 +92,8 @@ namespace Speed.Backend
             for(int i = 0; i!=2;i++)
             {
                 Talia.Add(new Karta(13, $"superFreeze", Color.Special));
-                Talia.Add(new Karta(13, $"superPeek", Color.Special));
-                Talia.Add(new Karta(13, $"superSwap", Color.Special));
+                Talia.Add(new Karta(14, $"superPeek", Color.Special));
+                Talia.Add(new Karta(15, $"superSwap", Color.Special));
             }
         }
         public void RozdajKarty(int liczbaKart)
