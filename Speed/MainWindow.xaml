@@ -1,0 +1,54 @@
+﻿<Window x:Class="Speed.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Speed"
+        mc:Ignorable="d"
+        Title="SpeedMenu" Height="498" Width="400"
+        ResizeMode="CanMinimize">
+    <Grid Background="#FFAEFF62" Margin="0,0,0,-6">
+        <Button x:Name="BtnPlay" Content="Play" HorizontalAlignment="Center" Margin="0,241,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="140" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnPlay_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label x:Name="LblLogotype" Content="" HorizontalAlignment="Center" Margin="0,24,0,0" VerticalAlignment="Top" Height="200" Width="350" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Button x:Name="BtnHostGame" Content="Host Game" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="170" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnHostGame_Click" Visibility="Hidden" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="BtnRules" Content="Rules" HorizontalAlignment="Center" Margin="0,341,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="140" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnRules_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="BtnQuit" Content="Quit" HorizontalAlignment="Center" Margin="0,397,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Heavy" FontSize="24" Width="140" Height="35" Background="#FF26482B" Foreground="#FFC5FF33" BorderBrush="White" BorderThickness="3,3,3,3" Click="BtnQuit_Click" >
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+    </Grid>
+</Window>
